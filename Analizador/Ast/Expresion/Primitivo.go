@@ -17,7 +17,7 @@ func (p Primitivo) GetValor(env entorno.Entorno) abstract.RetornoTipo {
 	}
 }
 
-func ValPrimitivo(valor interface{}, tipo abstract.TipoDato) Primitivo {
+func NewPrimitivo(valor interface{}, tipo abstract.TipoDato) Primitivo {
 	e := Primitivo{valor, tipo}
 	return e
 }

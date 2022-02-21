@@ -3,14 +3,15 @@ package abstract
 type TipoDato int
 
 const (
-	INT	TipoDato = iota
+	INT TipoDato = iota
 	FLOAT
 	STRING
 	BOOL
 	CHAR
+	NULL
 )
 
 type RetornoTipo struct {
-	Tipo TipoDato
+	Tipo  TipoDato
 	Valor interface{}
 }
