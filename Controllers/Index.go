@@ -2,9 +2,8 @@ package controllers
 
 import (
 	parser "OLC2_PROYECTO1_201901073/Analizador/parser"
-	"OLC2_PROYECTO1_201901073/Complementos"
+	complementos "OLC2_PROYECTO1_201901073/Complementos"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"net/http"
 
@@ -16,14 +15,14 @@ type Peticion struct {
 }
 
 func Inicio() http.HandlerFunc {
-	return func (wr http.ResponseWriter, req *http.Request)  {
+	return func(wr http.ResponseWriter, req *http.Request) {
 		wr.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(wr).Encode(map[string]interface{}{"Run":"200"})
+		json.NewEncoder(wr).Encode(map[string]interface{}{"Run": "200"})
 	}
 }
 
 func Data() http.HandlerFunc {
-	return func (w http.ResponseWriter, rq *http.Request)  {
+	return func(w http.ResponseWriter, rq *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		var pet Peticion
 		if err := json.NewDecoder(rq.Body).Decode(&pet); err != nil {
