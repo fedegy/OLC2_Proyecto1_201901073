@@ -7,7 +7,8 @@ options {
 @header {
     import "OLC2_PROYECTO1_201901073/Analizador/Ast/Abstract"
     import "OLC2_PROYECTO1_201901073/Analizador/Ast/Expresion"
-    import arrayL "github.com/colegno/arrayL"
+    import arrayL "github.com/colegno/arrayList"
+    import "OLC2_PROYECTO1_201901073/Analizador/Ast/Instrucciones"
 }
 
 start returns [*arrayL.List lista] : instrucciones {$lista = $instrucciones.l}
