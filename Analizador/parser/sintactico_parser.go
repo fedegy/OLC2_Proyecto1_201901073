@@ -28,14 +28,14 @@ var parserATN = []uint16{
 	6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 5, 6, 45, 10, 6, 3, 6, 3,
 	6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 7, 6, 57, 10, 6, 12,
 	6, 14, 6, 60, 11, 6, 3, 7, 3, 7, 3, 7, 3, 7, 5, 7, 66, 10, 7, 3, 7, 2,
-	3, 10, 8, 2, 4, 6, 8, 10, 12, 2, 4, 3, 2, 13, 14, 3, 2, 11, 12, 2, 66,
+	3, 10, 8, 2, 4, 6, 8, 10, 12, 2, 4, 3, 2, 19, 20, 3, 2, 17, 18, 2, 66,
 	2, 14, 3, 2, 2, 2, 4, 20, 3, 2, 2, 2, 6, 25, 3, 2, 2, 2, 8, 32, 3, 2, 2,
 	2, 10, 44, 3, 2, 2, 2, 12, 65, 3, 2, 2, 2, 14, 15, 5, 4, 3, 2, 15, 16,
 	8, 2, 1, 2, 16, 3, 3, 2, 2, 2, 17, 19, 5, 6, 4, 2, 18, 17, 3, 2, 2, 2,
 	19, 22, 3, 2, 2, 2, 20, 18, 3, 2, 2, 2, 20, 21, 3, 2, 2, 2, 21, 23, 3,
 	2, 2, 2, 22, 20, 3, 2, 2, 2, 23, 24, 8, 3, 1, 2, 24, 5, 3, 2, 2, 2, 25,
 	26, 7, 5, 2, 2, 26, 27, 7, 3, 2, 2, 27, 28, 5, 8, 5, 2, 28, 29, 7, 4, 2,
-	2, 29, 30, 7, 10, 2, 2, 30, 31, 8, 4, 1, 2, 31, 7, 3, 2, 2, 2, 32, 33,
+	2, 29, 30, 7, 16, 2, 2, 30, 31, 8, 4, 1, 2, 31, 7, 3, 2, 2, 2, 32, 33,
 	5, 10, 6, 2, 33, 34, 8, 5, 1, 2, 34, 9, 3, 2, 2, 2, 35, 36, 8, 6, 1, 2,
 	36, 37, 5, 12, 7, 2, 37, 38, 8, 6, 1, 2, 38, 45, 3, 2, 2, 2, 39, 40, 7,
 	3, 2, 2, 40, 41, 5, 8, 5, 2, 41, 42, 7, 4, 2, 2, 42, 43, 8, 6, 1, 2, 43,
@@ -44,19 +44,19 @@ var parserATN = []uint16{
 	8, 6, 1, 2, 50, 57, 3, 2, 2, 2, 51, 52, 12, 5, 2, 2, 52, 53, 9, 3, 2, 2,
 	53, 54, 5, 10, 6, 6, 54, 55, 8, 6, 1, 2, 55, 57, 3, 2, 2, 2, 56, 46, 3,
 	2, 2, 2, 56, 51, 3, 2, 2, 2, 57, 60, 3, 2, 2, 2, 58, 56, 3, 2, 2, 2, 58,
-	59, 3, 2, 2, 2, 59, 11, 3, 2, 2, 2, 60, 58, 3, 2, 2, 2, 61, 62, 7, 15,
-	2, 2, 62, 66, 8, 7, 1, 2, 63, 64, 7, 17, 2, 2, 64, 66, 8, 7, 1, 2, 65,
+	59, 3, 2, 2, 2, 59, 11, 3, 2, 2, 2, 60, 58, 3, 2, 2, 2, 61, 62, 7, 10,
+	2, 2, 62, 66, 8, 7, 1, 2, 63, 64, 7, 12, 2, 2, 64, 66, 8, 7, 1, 2, 65,
 	61, 3, 2, 2, 2, 65, 63, 3, 2, 2, 2, 66, 13, 3, 2, 2, 2, 7, 20, 44, 56,
 	58, 65,
 }
 var literalNames = []string{
-	"", "'('", "')'", "'println!'", "'i64'", "'f64'", "'&str'", "'bool'", "';'",
-	"'+'", "'-'", "'*'", "'/'", "", "", "", "'true'", "'false'",
+	"", "'('", "')'", "'println!'", "'i64'", "'f64'", "'&str'", "'bool'", "",
+	"", "", "'true'", "'false'", "", "';'", "'+'", "'-'", "'*'", "'/'",
 }
 var symbolicNames = []string{
 	"", "PARENA", "PARENC", "PRINTLN", "R_INT", "R_FLOAT", "R_STRING", "R_BOOL",
-	"PTCOMA", "MAS", "MENOS", "POR", "DIVIDIDO", "ENTERO", "FLOAT", "CADENA",
-	"R_TRUE", "R_FALSE", "ID", "WHITESPACE",
+	"ENTERO", "FLOAT", "CADENA", "R_TRUE", "R_FALSE", "ID", "PTCOMA", "MAS",
+	"MENOS", "POR", "DIVIDIDO", "WHITESPACE",
 }
 
 var ruleNames = []string{
@@ -102,17 +102,17 @@ const (
 	SintacticoR_FLOAT    = 5
 	SintacticoR_STRING   = 6
 	SintacticoR_BOOL     = 7
-	SintacticoPTCOMA     = 8
-	SintacticoMAS        = 9
-	SintacticoMENOS      = 10
-	SintacticoPOR        = 11
-	SintacticoDIVIDIDO   = 12
-	SintacticoENTERO     = 13
-	SintacticoFLOAT      = 14
-	SintacticoCADENA     = 15
-	SintacticoR_TRUE     = 16
-	SintacticoR_FALSE    = 17
-	SintacticoID         = 18
+	SintacticoENTERO     = 8
+	SintacticoFLOAT      = 9
+	SintacticoCADENA     = 10
+	SintacticoR_TRUE     = 11
+	SintacticoR_FALSE    = 12
+	SintacticoID         = 13
+	SintacticoPTCOMA     = 14
+	SintacticoMAS        = 15
+	SintacticoMENOS      = 16
+	SintacticoPOR        = 17
+	SintacticoDIVIDIDO   = 18
 	SintacticoWHITESPACE = 19
 )
 
@@ -1223,11 +1223,11 @@ func (p *Sintactico) Primitivo() (localctx IPrimitivoContext) {
 			} else {
 				return localctx.(*PrimitivoContext).Get_CADENA().GetText()
 			}
-		}())[1 : len((func() int {
+		}())[1 : len((func() string {
 			if localctx.(*PrimitivoContext).Get_CADENA() == nil {
-				return 0
+				return ""
 			} else {
-				return localctx.(*PrimitivoContext).Get_CADENA().GetLine()
+				return localctx.(*PrimitivoContext).Get_CADENA().GetText()
 			}
 		}()))-1]
 		localctx.(*PrimitivoContext).p = expresion.NewPrimitivo(str, abstract.STRING)
