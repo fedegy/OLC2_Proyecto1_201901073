@@ -10,6 +10,11 @@ R_BOOL          : 'bool';
 
 PTCOMA          : ';';
 
+MAS             : '+';
+MENOS           : '-';
+POR             : '*';
+DIVIDIDO        : '/';
+
 ENTERO          : [0-9]+;
 FLOAT           : [0-9]+[.][0-9]+;
 CADENA          : '"'~["]*'"';
