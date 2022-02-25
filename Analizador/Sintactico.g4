@@ -9,6 +9,7 @@ options {
     import "OLC2_PROYECTO1_201901073/Analizador/Ast/Expresion"
     import arrayL "github.com/colegno/arrayList"
     import "OLC2_PROYECTO1_201901073/Analizador/Ast/Instrucciones"
+    import "OLC2_PROYECTO1_201901073/Analizador/Entorno"
 }
 
 start returns [*arrayL.List lista] : instrucciones {$lista = $instrucciones.l}
@@ -38,6 +39,7 @@ expr_op returns[abstract.Expresion p]
     | hIzq = expr_op op=('+'|'-') hDer = expr_op {$p = expresion.NewOperacion($hIzq.p, $op.text, $hDer.p, false)}
     | primitivo {$p = $primitivo.p}
     | PARENA expr PARENC {$p = $expr.p}
+    | R_INT CUATROPT POW PARENA hIzq = expr_op op=(','|',') hDer = expr_op PARENC {$p = expresion.NewOperacion($hIzq.p, "**", $hDer.p, false)}
 ;
 
 primitivo returns[abstract.Expresion p]

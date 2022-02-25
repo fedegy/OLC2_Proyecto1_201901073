@@ -1,4 +1,4 @@
-package abstract
+package entorno
 
 type TipoDato int
 

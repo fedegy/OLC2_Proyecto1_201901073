@@ -4,6 +4,7 @@
     import "OLC2_PROYECTO1_201901073/Analizador/Ast/Expresion"
     import arrayL "github.com/colegno/arrayList"
     import "OLC2_PROYECTO1_201901073/Analizador/Ast/Instrucciones"
+    import "OLC2_PROYECTO1_201901073/Analizador/Entorno"
 
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;

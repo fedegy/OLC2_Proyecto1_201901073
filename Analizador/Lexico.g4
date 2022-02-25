@@ -7,13 +7,17 @@ R_INT           : 'i64';
 R_FLOAT         : 'f64';
 R_STRING        : '&str';
 R_BOOL          : 'bool';
+POW             : 'pow';
 
+CUATROPT        : '::';
 PTCOMA          : ';';
+COMA            : ',';
 
 MAS             : '+';
 MENOS           : '-';
 POR             : '*';
 DIVIDIDO        : '/';
+MODULO          : '%';
 
 ENTERO          : [0-9]+;
 FLOAT           : [0-9]+[.][0-9]+;
