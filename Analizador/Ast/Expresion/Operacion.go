@@ -4,6 +4,8 @@ import (
 	abstract2 "OLC2_PROYECTO1_201901073/Analizador/Ast/Abstract"
 	entorno "OLC2_PROYECTO1_201901073/Analizador/Entorno"
 	"fmt"
+	"math"
+	"strconv"
 )
 
 var suma = [5][5]entorno.TipoDato{
@@ -95,9 +97,57 @@ func (p Operacion) GetValor(env entorno.Entorno) entorno.RetornoTipo {
 				}
 			}
 		case "-": {
+			if p.Unario {
+				if valIzq.Tipo == entorno.INT {
+					return entorno.RetornoTipo{Tipo: valIzq.Tipo, Valor: -valIzq.Valor.(int)}
+				}else if valIzq.Tipo == entorno.FLOAT {
+					return entorno.RetornoTipo{Tipo: valIzq.Tipo, Valor: -valDer.Valor.(float64)}
+				}
+			}
+
 			dominante = resta[valIzq.Tipo][valDer.Tipo]
+			if dominante == entorno.INT {
+				return entorno.RetornoTipo{Tipo: dominante, Valor: (valIzq.Valor.(int) - valDer.Valor.(int))}
+			}else if dominante == entorno.FLOAT {
+				val1, _ := strconv.ParseFloat(fmt.Sprintf("%v", valIzq.Valor), 64)
+				val2, _ := strconv.ParseFloat(fmt.Sprintf("%v", valDer.Valor), 64)
+				return entorno.RetornoTipo{Tipo: dominante, Valor: val1 - val2}
+			}
+		}
+		case "*": {
+			dominante = multi[valIzq.Tipo][valDer.Tipo]
+			if dominante == entorno.INT {
+				return entorno.RetornoTipo{Tipo: dominante, Valor: (valIzq.Valor.(int) * valDer.Valor.(int))}
+			}else if dominante == entorno.FLOAT {
+				val1, _ := strconv.ParseFloat(fmt.Sprintf("%v", valIzq.Valor), 64)
+				val2, _ := strconv.ParseFloat(fmt.Sprintf("%v", valDer.Valor), 64)
+				return entorno.RetornoTipo{Tipo: dominante, Valor: val1 * val2}
+			}
+		}
+		case "/": {
+			dominante = division[valIzq.Tipo][valDer.Tipo]
+			if dominante == entorno.INT {
+				return entorno.RetornoTipo{Tipo: dominante, Valor: (valIzq.Valor.(int) / valDer.Valor.(int))}
+			}else if dominante == entorno.FLOAT {
+				val1, _ := strconv.ParseFloat(fmt.Sprintf("%v", valIzq.Valor), 64)
+				val2, _ := strconv.ParseFloat(fmt.Sprintf("%v", valDer.Valor), 64)
+				return entorno.RetornoTipo{Tipo: dominante, Valor: val1 / val2}
+			}
 		}
 
+		case "**": {
+			dominante = potencia[valIzq.Tipo][valDer.Tipo]
+			if dominante == entorno.INT {
+				val1, _ := strconv.ParseFloat(fmt.Sprintf("%v", valIzq.Valor), 64)
+				val2, _ := strconv.ParseFloat(fmt.Sprintf("%v", valDer.Valor), 64)
+				var res = int(math.Pow(val1, val2))
+				return entorno.RetornoTipo{Tipo: dominante, Valor: res}
+			}else if dominante == entorno.FLOAT {
+				val1, _ := strconv.ParseFloat(fmt.Sprintf("%v", valIzq.Valor), 64)
+				val2, _ := strconv.ParseFloat(fmt.Sprintf("%v", valDer.Valor), 64)
+				return entorno.RetornoTipo{Tipo: dominante, Valor: math.Pow(val1, val2)}
+			}
+		}
 	}
 	return entorno.RetornoTipo{Tipo: entorno.NULL, Valor: nil}
 }
