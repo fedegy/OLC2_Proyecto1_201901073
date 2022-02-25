@@ -23,6 +23,9 @@ type SintacticoListener interface {
 	// EnterExpr_op is called when entering the expr_op production.
 	EnterExpr_op(c *Expr_opContext)
 
+	// EnterExpr_rel is called when entering the expr_rel production.
+	EnterExpr_rel(c *Expr_relContext)
+
 	// EnterPrimitivo is called when entering the primitivo production.
 	EnterPrimitivo(c *PrimitivoContext)
 
@@ -40,6 +43,9 @@ type SintacticoListener interface {
 
 	// ExitExpr_op is called when exiting the expr_op production.
 	ExitExpr_op(c *Expr_opContext)
+
+	// ExitExpr_rel is called when exiting the expr_rel production.
+	ExitExpr_rel(c *Expr_relContext)
 
 	// ExitPrimitivo is called when exiting the primitivo production.
 	ExitPrimitivo(c *PrimitivoContext)

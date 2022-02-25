@@ -1,7 +1,7 @@
 package expresion
 
 import (
-	abstract2 "OLC2_PROYECTO1_201901073/Analizador/Ast/Abstract"
+	abstract "OLC2_PROYECTO1_201901073/Analizador/Ast/Abstract"
 	entorno "OLC2_PROYECTO1_201901073/Analizador/Entorno"
 	"fmt"
 	"math"
@@ -57,13 +57,13 @@ var modulo = [5][5]entorno.TipoDato{
 }
 
 type Operacion struct {
-	HIzq     abstract2.Expresion
+	HIzq     abstract.Expresion
 	Operador string
-	HDer     abstract2.Expresion
+	HDer     abstract.Expresion
 	Unario   bool
 }
 
-func NewOperacion(HIzq abstract2.Expresion, Operador string, HDer abstract2.Expresion, Unario bool) Operacion {
+func NewOperacion(HIzq abstract.Expresion, Operador string, HDer abstract.Expresion, Unario bool) Operacion {
 	env := Operacion{HIzq, Operador, HDer, Unario}
 	return env
 }

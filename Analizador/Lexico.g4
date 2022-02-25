@@ -9,6 +9,16 @@ R_STRING        : '&str';
 R_BOOL          : 'bool';
 POW             : 'pow';
 
+AND             : '&&';
+OR              : '||';
+NOT             : '!';
+DIFERENTE       : '!=';
+MAYORIGUAL      : '>=';
+MENORIGUAL      : '<=';
+MAYORQUE        : '>';
+MENORQUE        : '<';
+IGUALIGUAL      : '==';
+
 CUATROPT        : '::';
 PTCOMA          : ';';
 COMA            : ',';
@@ -19,8 +29,8 @@ POR             : '*';
 DIVIDIDO        : '/';
 MODULO          : '%';
 
-FLOAT           : [0-9]+[.][0-9]+;
 ENTERO          : [0-9]+;
+FLOAT           : [0-9]+[.][0-9]+;
 CADENA          : '"'~["]*'"';
 R_TRUE          : 'true';
 R_FALSE         : 'false';

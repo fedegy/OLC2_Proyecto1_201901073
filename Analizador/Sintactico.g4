@@ -31,7 +31,8 @@ instruccion returns[abstract.Instruccion instr]
 ;
 
 expr returns[abstract.Expresion p]
-: expr_op {$p = $expr_op.p}
+    : expr_rel          {$p = $expr_rel.p}
+    | expr_op           {$p = $expr_op.p}
 ;
 
 expr_op returns[abstract.Expresion p]
@@ -45,16 +46,28 @@ expr_op returns[abstract.Expresion p]
     | R_FLOAT CUATROPT POW PARENA hIzq = expr_op ',' hDer = expr_op PARENC {$p = expresion.NewOperacion($hIzq.p, "f64**", $hDer.p, false)}
 ;
 
+expr_rel returns[abstract.Expresion p]
+    : hIzq = expr_rel op = (MAYORIGUAL | MENORIGUAL | MENORQUE | MAYORQUE) hDer = expr_rel {$p = expresion.NewRelacional($hIzq.p, $op.text, $hDer.p)}
+    | expr_op {$p = $expr_op.p}
+;
+
 primitivo returns[abstract.Expresion p]
 : ENTERO {
     num, err := strconv.Atoi($ENTERO.text)
     if err != nil {
         fmt.Println(err)
     }
-    $p = expresion.NewPrimitivo(num, abstract.INT)
+    $p = expresion.NewPrimitivo(num, entorno.INT)
 }
 | CADENA {
-    str := $CADENA.text[1:len($CADENA.line)-1]
-    $p = expresion.NewPrimitivo(str, abstract.STRING)
+    str := $CADENA.text[1:len($CADENA.text)-1]
+    $p = expresion.NewPrimitivo(str, entorno.STRING)
+}
+| FLOAT {
+    num, err := strconv.ParseFloat($FLOAT.text, 64)
+    if err != nil {
+        fmt.Println(err)
+    }
+    $p = expresion.NewPrimitivo(num, entorno.FLOAT)
 }
 ;
