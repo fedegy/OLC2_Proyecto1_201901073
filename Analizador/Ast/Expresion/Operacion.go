@@ -14,6 +14,46 @@ var suma = [5][5]abstract2.TipoDato{
 	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
 }
 
+var resta = [5][5]abstract2.TipoDato{
+	{abstract2.INT, abstract2.FLOAT, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.FLOAT, abstract2.FLOAT, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+}
+
+var multi = [5][5]abstract2.TipoDato{
+	{abstract2.INT, abstract2.FLOAT, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.FLOAT, abstract2.FLOAT, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+}
+
+var division = [5][5]abstract2.TipoDato{
+	{abstract2.INT, abstract2.FLOAT, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.FLOAT, abstract2.FLOAT, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+}
+
+var potencia = [5][5]abstract2.TipoDato{
+	{abstract2.INT, abstract2.FLOAT, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.FLOAT, abstract2.FLOAT, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+}
+
+var modulo = [5][5]abstract2.TipoDato{
+	{abstract2.INT, abstract2.FLOAT, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.FLOAT, abstract2.FLOAT, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+	{abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL, abstract2.NULL},
+}
+
 type Operacion struct {
 	HIzq     abstract2.Expresion
 	Operador string
