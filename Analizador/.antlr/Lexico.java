@@ -18,7 +18,7 @@ public class Lexico extends Lexer {
 	public static final int
 		PARENA=1, PARENC=2, PRINTLN=3, R_INT=4, R_FLOAT=5, R_STRING=6, R_BOOL=7, 
 		POW=8, CUATROPT=9, PTCOMA=10, COMA=11, MAS=12, MENOS=13, POR=14, DIVIDIDO=15, 
-		MODULO=16, ENTERO=17, FLOAT=18, CADENA=19, R_TRUE=20, R_FALSE=21, ID=22, 
+		MODULO=16, FLOAT=17, ENTERO=18, CADENA=19, R_TRUE=20, R_FALSE=21, ID=22, 
 		WHITESPACE=23;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
@@ -32,7 +32,7 @@ public class Lexico extends Lexer {
 		return new String[] {
 			"PARENA", "PARENC", "PRINTLN", "R_INT", "R_FLOAT", "R_STRING", "R_BOOL", 
 			"POW", "CUATROPT", "PTCOMA", "COMA", "MAS", "MENOS", "POR", "DIVIDIDO", 
-			"MODULO", "ENTERO", "FLOAT", "CADENA", "R_TRUE", "R_FALSE", "ID", "WHITESPACE", 
+			"MODULO", "FLOAT", "ENTERO", "CADENA", "R_TRUE", "R_FALSE", "ID", "WHITESPACE", 
 			"ESC_SEQ"
 		};
 	}
@@ -50,7 +50,7 @@ public class Lexico extends Lexer {
 		return new String[] {
 			null, "PARENA", "PARENC", "PRINTLN", "R_INT", "R_FLOAT", "R_STRING", 
 			"R_BOOL", "POW", "CUATROPT", "PTCOMA", "COMA", "MAS", "MENOS", "POR", 
-			"DIVIDIDO", "MODULO", "ENTERO", "FLOAT", "CADENA", "R_TRUE", "R_FALSE", 
+			"DIVIDIDO", "MODULO", "FLOAT", "ENTERO", "CADENA", "R_TRUE", "R_FALSE", 
 			"ID", "WHITESPACE"
 		};
 	}
@@ -120,8 +120,8 @@ public class Lexico extends Lexer {
 		"\t\31\3\2\3\2\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5"+
 		"\3\5\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\t\3\t\3"+
 		"\t\3\t\3\n\3\n\3\n\3\13\3\13\3\f\3\f\3\r\3\r\3\16\3\16\3\17\3\17\3\20"+
-		"\3\20\3\21\3\21\3\22\6\22i\n\22\r\22\16\22j\3\23\6\23n\n\23\r\23\16\23"+
-		"o\3\23\3\23\6\23t\n\23\r\23\16\23u\3\24\3\24\7\24z\n\24\f\24\16\24}\13"+
+		"\3\20\3\21\3\21\3\22\6\22i\n\22\r\22\16\22j\3\22\3\22\6\22o\n\22\r\22"+
+		"\16\22p\3\23\6\23t\n\23\r\23\16\23u\3\24\3\24\7\24z\n\24\f\24\16\24}\13"+
 		"\24\3\24\3\24\3\25\3\25\3\25\3\25\3\25\3\26\3\26\3\26\3\26\3\26\3\26\3"+
 		"\27\3\27\7\27\u008e\n\27\f\27\16\27\u0091\13\27\3\30\6\30\u0094\n\30\r"+
 		"\30\16\30\u0095\3\30\3\30\3\31\3\31\3\31\2\2\32\3\3\5\4\7\5\t\6\13\7\r"+
@@ -134,7 +134,7 @@ public class Lexico extends Lexer {
 		"\2\'\3\2\2\2\2)\3\2\2\2\2+\3\2\2\2\2-\3\2\2\2\2/\3\2\2\2\3\63\3\2\2\2"+
 		"\5\65\3\2\2\2\7\67\3\2\2\2\t@\3\2\2\2\13D\3\2\2\2\rH\3\2\2\2\17M\3\2\2"+
 		"\2\21R\3\2\2\2\23V\3\2\2\2\25Y\3\2\2\2\27[\3\2\2\2\31]\3\2\2\2\33_\3\2"+
-		"\2\2\35a\3\2\2\2\37c\3\2\2\2!e\3\2\2\2#h\3\2\2\2%m\3\2\2\2\'w\3\2\2\2"+
+		"\2\2\35a\3\2\2\2\37c\3\2\2\2!e\3\2\2\2#h\3\2\2\2%s\3\2\2\2\'w\3\2\2\2"+
 		")\u0080\3\2\2\2+\u0085\3\2\2\2-\u008b\3\2\2\2/\u0093\3\2\2\2\61\u0099"+
 		"\3\2\2\2\63\64\7*\2\2\64\4\3\2\2\2\65\66\7+\2\2\66\6\3\2\2\2\678\7r\2"+
 		"\289\7t\2\29:\7k\2\2:;\7p\2\2;<\7v\2\2<=\7n\2\2=>\7p\2\2>?\7#\2\2?\b\3"+
@@ -144,8 +144,8 @@ public class Lexico extends Lexer {
 		"\22\3\2\2\2VW\7<\2\2WX\7<\2\2X\24\3\2\2\2YZ\7=\2\2Z\26\3\2\2\2[\\\7.\2"+
 		"\2\\\30\3\2\2\2]^\7-\2\2^\32\3\2\2\2_`\7/\2\2`\34\3\2\2\2ab\7,\2\2b\36"+
 		"\3\2\2\2cd\7\61\2\2d \3\2\2\2ef\7\'\2\2f\"\3\2\2\2gi\t\2\2\2hg\3\2\2\2"+
-		"ij\3\2\2\2jh\3\2\2\2jk\3\2\2\2k$\3\2\2\2ln\t\2\2\2ml\3\2\2\2no\3\2\2\2"+
-		"om\3\2\2\2op\3\2\2\2pq\3\2\2\2qs\t\3\2\2rt\t\2\2\2sr\3\2\2\2tu\3\2\2\2"+
+		"ij\3\2\2\2jh\3\2\2\2jk\3\2\2\2kl\3\2\2\2ln\t\3\2\2mo\t\2\2\2nm\3\2\2\2"+
+		"op\3\2\2\2pn\3\2\2\2pq\3\2\2\2q$\3\2\2\2rt\t\2\2\2sr\3\2\2\2tu\3\2\2\2"+
 		"us\3\2\2\2uv\3\2\2\2v&\3\2\2\2w{\7$\2\2xz\n\4\2\2yx\3\2\2\2z}\3\2\2\2"+
 		"{y\3\2\2\2{|\3\2\2\2|~\3\2\2\2}{\3\2\2\2~\177\7$\2\2\177(\3\2\2\2\u0080"+
 		"\u0081\7v\2\2\u0081\u0082\7t\2\2\u0082\u0083\7w\2\2\u0083\u0084\7g\2\2"+
@@ -156,7 +156,7 @@ public class Lexico extends Lexer {
 		"\u0092\u0094\t\7\2\2\u0093\u0092\3\2\2\2\u0094\u0095\3\2\2\2\u0095\u0093"+
 		"\3\2\2\2\u0095\u0096\3\2\2\2\u0096\u0097\3\2\2\2\u0097\u0098\b\30\2\2"+
 		"\u0098\60\3\2\2\2\u0099\u009a\7^\2\2\u009a\u009b\t\b\2\2\u009b\62\3\2"+
-		"\2\2\t\2jou{\u008f\u0095\3\b\2\2";
+		"\2\2\t\2jpu{\u008f\u0095\3\b\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

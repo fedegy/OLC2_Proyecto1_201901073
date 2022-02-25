@@ -25,7 +25,7 @@ public class Sintactico extends Parser {
 	public static final int
 		PARENA=1, PARENC=2, PRINTLN=3, R_INT=4, R_FLOAT=5, R_STRING=6, R_BOOL=7, 
 		POW=8, CUATROPT=9, PTCOMA=10, COMA=11, MAS=12, MENOS=13, POR=14, DIVIDIDO=15, 
-		MODULO=16, ENTERO=17, FLOAT=18, CADENA=19, R_TRUE=20, R_FALSE=21, ID=22, 
+		MODULO=16, FLOAT=17, ENTERO=18, CADENA=19, R_TRUE=20, R_FALSE=21, ID=22, 
 		WHITESPACE=23;
 	public static final int
 		RULE_start = 0, RULE_instrucciones = 1, RULE_instruccion = 2, RULE_expr = 3, 
@@ -49,7 +49,7 @@ public class Sintactico extends Parser {
 		return new String[] {
 			null, "PARENA", "PARENC", "PRINTLN", "R_INT", "R_FLOAT", "R_STRING", 
 			"R_BOOL", "POW", "CUATROPT", "PTCOMA", "COMA", "MAS", "MENOS", "POR", 
-			"DIVIDIDO", "MODULO", "ENTERO", "FLOAT", "CADENA", "R_TRUE", "R_FALSE", 
+			"DIVIDIDO", "MODULO", "FLOAT", "ENTERO", "CADENA", "R_TRUE", "R_FALSE", 
 			"ID", "WHITESPACE"
 		};
 	}
@@ -304,10 +304,12 @@ public class Sintactico extends Parser {
 			return getRuleContext(Expr_opContext.class,i);
 		}
 		public TerminalNode COMA() { return getToken(Sintactico.COMA, 0); }
+		public TerminalNode R_FLOAT() { return getToken(Sintactico.R_FLOAT, 0); }
 		public TerminalNode POR() { return getToken(Sintactico.POR, 0); }
 		public TerminalNode DIVIDIDO() { return getToken(Sintactico.DIVIDIDO, 0); }
 		public TerminalNode MAS() { return getToken(Sintactico.MAS, 0); }
 		public TerminalNode MENOS() { return getToken(Sintactico.MENOS, 0); }
+		public TerminalNode MODULO() { return getToken(Sintactico.MODULO, 0); }
 		public Expr_opContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -330,7 +332,7 @@ public class Sintactico extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(52);
+			setState(62);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ENTERO:
@@ -382,11 +384,41 @@ public class Sintactico extends Parser {
 				_localctx.p = expresion.NewOperacion(((Expr_opContext)_localctx).hIzq.p, "**", ((Expr_opContext)_localctx).hDer.p, false)
 				}
 				break;
+			case R_FLOAT:
+				{
+				setState(52);
+				match(R_FLOAT);
+				setState(53);
+				match(CUATROPT);
+				setState(54);
+				match(POW);
+				setState(55);
+				match(PARENA);
+				setState(56);
+				((Expr_opContext)_localctx).hIzq = expr_op(0);
+				setState(57);
+				((Expr_opContext)_localctx).op = _input.LT(1);
+				_la = _input.LA(1);
+				if ( !(_la==COMA) ) {
+					((Expr_opContext)_localctx).op = (Token)_errHandler.recoverInline(this);
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
+				setState(58);
+				((Expr_opContext)_localctx).hDer = expr_op(0);
+				setState(59);
+				match(PARENC);
+				_localctx.p = expresion.NewOperacion(((Expr_opContext)_localctx).hIzq.p, "f64**", ((Expr_opContext)_localctx).hDer.p, false)
+				}
+				break;
 			default:
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(66);
+			setState(81);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -394,7 +426,7 @@ public class Sintactico extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(64);
+					setState(79);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 					case 1:
@@ -403,9 +435,9 @@ public class Sintactico extends Parser {
 						_localctx.hIzq = _prevctx;
 						_localctx.hIzq = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr_op);
-						setState(54);
-						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(55);
+						setState(64);
+						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
+						setState(65);
 						((Expr_opContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==POR || _la==DIVIDIDO) ) {
@@ -416,8 +448,8 @@ public class Sintactico extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(56);
-						((Expr_opContext)_localctx).hDer = expr_op(6);
+						setState(66);
+						((Expr_opContext)_localctx).hDer = expr_op(8);
 						_localctx.p = expresion.NewOperacion(((Expr_opContext)_localctx).hIzq.p, (((Expr_opContext)_localctx).op!=null?((Expr_opContext)_localctx).op.getText():null), ((Expr_opContext)_localctx).hDer.p, false)
 						}
 						break;
@@ -427,9 +459,9 @@ public class Sintactico extends Parser {
 						_localctx.hIzq = _prevctx;
 						_localctx.hIzq = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr_op);
-						setState(59);
-						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(60);
+						setState(69);
+						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
+						setState(70);
 						((Expr_opContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !(_la==MAS || _la==MENOS) ) {
@@ -440,15 +472,39 @@ public class Sintactico extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(61);
-						((Expr_opContext)_localctx).hDer = expr_op(5);
+						setState(71);
+						((Expr_opContext)_localctx).hDer = expr_op(7);
+						_localctx.p = expresion.NewOperacion(((Expr_opContext)_localctx).hIzq.p, (((Expr_opContext)_localctx).op!=null?((Expr_opContext)_localctx).op.getText():null), ((Expr_opContext)_localctx).hDer.p, false)
+						}
+						break;
+					case 3:
+						{
+						_localctx = new Expr_opContext(_parentctx, _parentState);
+						_localctx.hIzq = _prevctx;
+						_localctx.hIzq = _prevctx;
+						pushNewRecursionContext(_localctx, _startState, RULE_expr_op);
+						setState(74);
+						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
+						setState(75);
+						((Expr_opContext)_localctx).op = _input.LT(1);
+						_la = _input.LA(1);
+						if ( !(_la==MODULO) ) {
+							((Expr_opContext)_localctx).op = (Token)_errHandler.recoverInline(this);
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(76);
+						((Expr_opContext)_localctx).hDer = expr_op(6);
 						_localctx.p = expresion.NewOperacion(((Expr_opContext)_localctx).hIzq.p, (((Expr_opContext)_localctx).op!=null?((Expr_opContext)_localctx).op.getText():null), ((Expr_opContext)_localctx).hDer.p, false)
 						}
 						break;
 					}
 					} 
 				}
-				setState(68);
+				setState(83);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			}
@@ -481,13 +537,13 @@ public class Sintactico extends Parser {
 		PrimitivoContext _localctx = new PrimitivoContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_primitivo);
 		try {
-			setState(73);
+			setState(88);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ENTERO:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(69);
+				setState(84);
 				((PrimitivoContext)_localctx).ENTERO = match(ENTERO);
 
 				    num, err := strconv.Atoi((((PrimitivoContext)_localctx).ENTERO!=null?((PrimitivoContext)_localctx).ENTERO.getText():null))
@@ -501,7 +557,7 @@ public class Sintactico extends Parser {
 			case CADENA:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(71);
+				setState(86);
 				((PrimitivoContext)_localctx).CADENA = match(CADENA);
 
 				    str := (((PrimitivoContext)_localctx).CADENA!=null?((PrimitivoContext)_localctx).CADENA.getText():null)[1:len((((PrimitivoContext)_localctx).CADENA!=null?((PrimitivoContext)_localctx).CADENA.getLine():0))-1]
@@ -534,34 +590,39 @@ public class Sintactico extends Parser {
 	private boolean expr_op_sempred(Expr_opContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 5);
+			return precpred(_ctx, 7);
 		case 1:
-			return precpred(_ctx, 4);
+			return precpred(_ctx, 6);
+		case 2:
+			return precpred(_ctx, 5);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\31N\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\31]\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\2\3\3\7\3\23\n\3\f\3\16\3"+
 		"\26\13\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\6\3\6\3\6\3"+
-		"\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\5\6\67"+
-		"\n\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\7\6C\n\6\f\6\16\6F\13\6\3"+
-		"\7\3\7\3\7\3\7\5\7L\n\7\3\7\2\3\n\b\2\4\6\b\n\f\2\5\3\2\r\r\3\2\20\21"+
-		"\3\2\16\17\2M\2\16\3\2\2\2\4\24\3\2\2\2\6\31\3\2\2\2\b \3\2\2\2\n\66\3"+
-		"\2\2\2\fK\3\2\2\2\16\17\5\4\3\2\17\20\b\2\1\2\20\3\3\2\2\2\21\23\5\6\4"+
-		"\2\22\21\3\2\2\2\23\26\3\2\2\2\24\22\3\2\2\2\24\25\3\2\2\2\25\27\3\2\2"+
-		"\2\26\24\3\2\2\2\27\30\b\3\1\2\30\5\3\2\2\2\31\32\7\5\2\2\32\33\7\3\2"+
-		"\2\33\34\5\b\5\2\34\35\7\4\2\2\35\36\7\f\2\2\36\37\b\4\1\2\37\7\3\2\2"+
-		"\2 !\5\n\6\2!\"\b\5\1\2\"\t\3\2\2\2#$\b\6\1\2$%\5\f\7\2%&\b\6\1\2&\67"+
-		"\3\2\2\2\'(\7\3\2\2()\5\b\5\2)*\7\4\2\2*+\b\6\1\2+\67\3\2\2\2,-\7\6\2"+
-		"\2-.\7\13\2\2./\7\n\2\2/\60\7\3\2\2\60\61\5\n\6\2\61\62\t\2\2\2\62\63"+
-		"\5\n\6\2\63\64\7\4\2\2\64\65\b\6\1\2\65\67\3\2\2\2\66#\3\2\2\2\66\'\3"+
-		"\2\2\2\66,\3\2\2\2\67D\3\2\2\289\f\7\2\29:\t\3\2\2:;\5\n\6\b;<\b\6\1\2"+
-		"<C\3\2\2\2=>\f\6\2\2>?\t\4\2\2?@\5\n\6\7@A\b\6\1\2AC\3\2\2\2B8\3\2\2\2"+
-		"B=\3\2\2\2CF\3\2\2\2DB\3\2\2\2DE\3\2\2\2E\13\3\2\2\2FD\3\2\2\2GH\7\23"+
-		"\2\2HL\b\7\1\2IJ\7\25\2\2JL\b\7\1\2KG\3\2\2\2KI\3\2\2\2L\r\3\2\2\2\7\24"+
-		"\66BDK";
+		"\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6"+
+		"\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\5\6A\n\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6"+
+		"\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\7\6R\n\6\f\6\16\6U\13\6\3\7\3\7\3\7\3"+
+		"\7\5\7[\n\7\3\7\2\3\n\b\2\4\6\b\n\f\2\6\3\2\r\r\3\2\20\21\3\2\16\17\3"+
+		"\2\22\22\2^\2\16\3\2\2\2\4\24\3\2\2\2\6\31\3\2\2\2\b \3\2\2\2\n@\3\2\2"+
+		"\2\fZ\3\2\2\2\16\17\5\4\3\2\17\20\b\2\1\2\20\3\3\2\2\2\21\23\5\6\4\2\22"+
+		"\21\3\2\2\2\23\26\3\2\2\2\24\22\3\2\2\2\24\25\3\2\2\2\25\27\3\2\2\2\26"+
+		"\24\3\2\2\2\27\30\b\3\1\2\30\5\3\2\2\2\31\32\7\5\2\2\32\33\7\3\2\2\33"+
+		"\34\5\b\5\2\34\35\7\4\2\2\35\36\7\f\2\2\36\37\b\4\1\2\37\7\3\2\2\2 !\5"+
+		"\n\6\2!\"\b\5\1\2\"\t\3\2\2\2#$\b\6\1\2$%\5\f\7\2%&\b\6\1\2&A\3\2\2\2"+
+		"\'(\7\3\2\2()\5\b\5\2)*\7\4\2\2*+\b\6\1\2+A\3\2\2\2,-\7\6\2\2-.\7\13\2"+
+		"\2./\7\n\2\2/\60\7\3\2\2\60\61\5\n\6\2\61\62\t\2\2\2\62\63\5\n\6\2\63"+
+		"\64\7\4\2\2\64\65\b\6\1\2\65A\3\2\2\2\66\67\7\7\2\2\678\7\13\2\289\7\n"+
+		"\2\29:\7\3\2\2:;\5\n\6\2;<\t\2\2\2<=\5\n\6\2=>\7\4\2\2>?\b\6\1\2?A\3\2"+
+		"\2\2@#\3\2\2\2@\'\3\2\2\2@,\3\2\2\2@\66\3\2\2\2AS\3\2\2\2BC\f\t\2\2CD"+
+		"\t\3\2\2DE\5\n\6\nEF\b\6\1\2FR\3\2\2\2GH\f\b\2\2HI\t\4\2\2IJ\5\n\6\tJ"+
+		"K\b\6\1\2KR\3\2\2\2LM\f\7\2\2MN\t\5\2\2NO\5\n\6\bOP\b\6\1\2PR\3\2\2\2"+
+		"QB\3\2\2\2QG\3\2\2\2QL\3\2\2\2RU\3\2\2\2SQ\3\2\2\2ST\3\2\2\2T\13\3\2\2"+
+		"\2US\3\2\2\2VW\7\24\2\2W[\b\7\1\2XY\7\25\2\2Y[\b\7\1\2ZV\3\2\2\2ZX\3\2"+
+		"\2\2[\r\3\2\2\2\7\24@QSZ";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

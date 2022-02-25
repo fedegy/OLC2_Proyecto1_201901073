@@ -19,8 +19,8 @@ POR             : '*';
 DIVIDIDO        : '/';
 MODULO          : '%';
 
-ENTERO          : [0-9]+;
 FLOAT           : [0-9]+[.][0-9]+;
+ENTERO          : [0-9]+;
 CADENA          : '"'~["]*'"';
 R_TRUE          : 'true';
 R_FALSE         : 'false';
