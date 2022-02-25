@@ -22,43 +22,44 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 25, 93, 4,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 25, 97, 4,
 	2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7, 3,
 	2, 3, 2, 3, 2, 3, 3, 7, 3, 19, 10, 3, 12, 3, 14, 3, 22, 11, 3, 3, 3, 3,
 	3, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 5, 3, 5, 3, 5, 3, 6, 3,
 	6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3,
 	6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3,
-	6, 3, 6, 3, 6, 3, 6, 5, 6, 65, 10, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3,
-	6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 7, 6, 82, 10,
-	6, 12, 6, 14, 6, 85, 11, 6, 3, 7, 3, 7, 3, 7, 3, 7, 5, 7, 91, 10, 7, 3,
-	7, 2, 3, 10, 8, 2, 4, 6, 8, 10, 12, 2, 6, 3, 2, 13, 13, 3, 2, 16, 17, 3,
-	2, 14, 15, 3, 2, 18, 18, 2, 94, 2, 14, 3, 2, 2, 2, 4, 20, 3, 2, 2, 2, 6,
-	25, 3, 2, 2, 2, 8, 32, 3, 2, 2, 2, 10, 64, 3, 2, 2, 2, 12, 90, 3, 2, 2,
-	2, 14, 15, 5, 4, 3, 2, 15, 16, 8, 2, 1, 2, 16, 3, 3, 2, 2, 2, 17, 19, 5,
-	6, 4, 2, 18, 17, 3, 2, 2, 2, 19, 22, 3, 2, 2, 2, 20, 18, 3, 2, 2, 2, 20,
-	21, 3, 2, 2, 2, 21, 23, 3, 2, 2, 2, 22, 20, 3, 2, 2, 2, 23, 24, 8, 3, 1,
-	2, 24, 5, 3, 2, 2, 2, 25, 26, 7, 5, 2, 2, 26, 27, 7, 3, 2, 2, 27, 28, 5,
-	8, 5, 2, 28, 29, 7, 4, 2, 2, 29, 30, 7, 12, 2, 2, 30, 31, 8, 4, 1, 2, 31,
+	6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 5, 6, 69, 10, 6, 3, 6, 3,
+	6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3,
+	6, 3, 6, 7, 6, 86, 10, 6, 12, 6, 14, 6, 89, 11, 6, 3, 7, 3, 7, 3, 7, 3,
+	7, 5, 7, 95, 10, 7, 3, 7, 2, 3, 10, 8, 2, 4, 6, 8, 10, 12, 2, 4, 3, 2,
+	16, 17, 3, 2, 14, 15, 2, 99, 2, 14, 3, 2, 2, 2, 4, 20, 3, 2, 2, 2, 6, 25,
+	3, 2, 2, 2, 8, 32, 3, 2, 2, 2, 10, 68, 3, 2, 2, 2, 12, 94, 3, 2, 2, 2,
+	14, 15, 5, 4, 3, 2, 15, 16, 8, 2, 1, 2, 16, 3, 3, 2, 2, 2, 17, 19, 5, 6,
+	4, 2, 18, 17, 3, 2, 2, 2, 19, 22, 3, 2, 2, 2, 20, 18, 3, 2, 2, 2, 20, 21,
+	3, 2, 2, 2, 21, 23, 3, 2, 2, 2, 22, 20, 3, 2, 2, 2, 23, 24, 8, 3, 1, 2,
+	24, 5, 3, 2, 2, 2, 25, 26, 7, 5, 2, 2, 26, 27, 7, 3, 2, 2, 27, 28, 5, 8,
+	5, 2, 28, 29, 7, 4, 2, 2, 29, 30, 7, 12, 2, 2, 30, 31, 8, 4, 1, 2, 31,
 	7, 3, 2, 2, 2, 32, 33, 5, 10, 6, 2, 33, 34, 8, 5, 1, 2, 34, 9, 3, 2, 2,
-	2, 35, 36, 8, 6, 1, 2, 36, 37, 5, 12, 7, 2, 37, 38, 8, 6, 1, 2, 38, 65,
-	3, 2, 2, 2, 39, 40, 7, 3, 2, 2, 40, 41, 5, 8, 5, 2, 41, 42, 7, 4, 2, 2,
-	42, 43, 8, 6, 1, 2, 43, 65, 3, 2, 2, 2, 44, 45, 7, 6, 2, 2, 45, 46, 7,
-	11, 2, 2, 46, 47, 7, 10, 2, 2, 47, 48, 7, 3, 2, 2, 48, 49, 5, 10, 6, 2,
-	49, 50, 9, 2, 2, 2, 50, 51, 5, 10, 6, 2, 51, 52, 7, 4, 2, 2, 52, 53, 8,
-	6, 1, 2, 53, 65, 3, 2, 2, 2, 54, 55, 7, 7, 2, 2, 55, 56, 7, 11, 2, 2, 56,
-	57, 7, 10, 2, 2, 57, 58, 7, 3, 2, 2, 58, 59, 5, 10, 6, 2, 59, 60, 9, 2,
-	2, 2, 60, 61, 5, 10, 6, 2, 61, 62, 7, 4, 2, 2, 62, 63, 8, 6, 1, 2, 63,
-	65, 3, 2, 2, 2, 64, 35, 3, 2, 2, 2, 64, 39, 3, 2, 2, 2, 64, 44, 3, 2, 2,
-	2, 64, 54, 3, 2, 2, 2, 65, 83, 3, 2, 2, 2, 66, 67, 12, 9, 2, 2, 67, 68,
-	9, 3, 2, 2, 68, 69, 5, 10, 6, 10, 69, 70, 8, 6, 1, 2, 70, 82, 3, 2, 2,
-	2, 71, 72, 12, 8, 2, 2, 72, 73, 9, 4, 2, 2, 73, 74, 5, 10, 6, 9, 74, 75,
-	8, 6, 1, 2, 75, 82, 3, 2, 2, 2, 76, 77, 12, 7, 2, 2, 77, 78, 9, 5, 2, 2,
-	78, 79, 5, 10, 6, 8, 79, 80, 8, 6, 1, 2, 80, 82, 3, 2, 2, 2, 81, 66, 3,
-	2, 2, 2, 81, 71, 3, 2, 2, 2, 81, 76, 3, 2, 2, 2, 82, 85, 3, 2, 2, 2, 83,
-	81, 3, 2, 2, 2, 83, 84, 3, 2, 2, 2, 84, 11, 3, 2, 2, 2, 85, 83, 3, 2, 2,
-	2, 86, 87, 7, 20, 2, 2, 87, 91, 8, 7, 1, 2, 88, 89, 7, 21, 2, 2, 89, 91,
-	8, 7, 1, 2, 90, 86, 3, 2, 2, 2, 90, 88, 3, 2, 2, 2, 91, 13, 3, 2, 2, 2,
-	7, 20, 64, 81, 83, 90,
+	2, 35, 36, 8, 6, 1, 2, 36, 37, 7, 15, 2, 2, 37, 38, 5, 8, 5, 2, 38, 39,
+	8, 6, 1, 2, 39, 69, 3, 2, 2, 2, 40, 41, 5, 12, 7, 2, 41, 42, 8, 6, 1, 2,
+	42, 69, 3, 2, 2, 2, 43, 44, 7, 3, 2, 2, 44, 45, 5, 8, 5, 2, 45, 46, 7,
+	4, 2, 2, 46, 47, 8, 6, 1, 2, 47, 69, 3, 2, 2, 2, 48, 49, 7, 6, 2, 2, 49,
+	50, 7, 11, 2, 2, 50, 51, 7, 10, 2, 2, 51, 52, 7, 3, 2, 2, 52, 53, 5, 10,
+	6, 2, 53, 54, 7, 13, 2, 2, 54, 55, 5, 10, 6, 2, 55, 56, 7, 4, 2, 2, 56,
+	57, 8, 6, 1, 2, 57, 69, 3, 2, 2, 2, 58, 59, 7, 7, 2, 2, 59, 60, 7, 11,
+	2, 2, 60, 61, 7, 10, 2, 2, 61, 62, 7, 3, 2, 2, 62, 63, 5, 10, 6, 2, 63,
+	64, 7, 13, 2, 2, 64, 65, 5, 10, 6, 2, 65, 66, 7, 4, 2, 2, 66, 67, 8, 6,
+	1, 2, 67, 69, 3, 2, 2, 2, 68, 35, 3, 2, 2, 2, 68, 40, 3, 2, 2, 2, 68, 43,
+	3, 2, 2, 2, 68, 48, 3, 2, 2, 2, 68, 58, 3, 2, 2, 2, 69, 87, 3, 2, 2, 2,
+	70, 71, 12, 9, 2, 2, 71, 72, 9, 2, 2, 2, 72, 73, 5, 10, 6, 10, 73, 74,
+	8, 6, 1, 2, 74, 86, 3, 2, 2, 2, 75, 76, 12, 8, 2, 2, 76, 77, 9, 3, 2, 2,
+	77, 78, 5, 10, 6, 9, 78, 79, 8, 6, 1, 2, 79, 86, 3, 2, 2, 2, 80, 81, 12,
+	7, 2, 2, 81, 82, 7, 18, 2, 2, 82, 83, 5, 10, 6, 8, 83, 84, 8, 6, 1, 2,
+	84, 86, 3, 2, 2, 2, 85, 70, 3, 2, 2, 2, 85, 75, 3, 2, 2, 2, 85, 80, 3,
+	2, 2, 2, 86, 89, 3, 2, 2, 2, 87, 85, 3, 2, 2, 2, 87, 88, 3, 2, 2, 2, 88,
+	11, 3, 2, 2, 2, 89, 87, 3, 2, 2, 2, 90, 91, 7, 20, 2, 2, 91, 95, 8, 7,
+	1, 2, 92, 93, 7, 21, 2, 2, 93, 95, 8, 7, 1, 2, 94, 90, 3, 2, 2, 2, 94,
+	92, 3, 2, 2, 2, 95, 13, 3, 2, 2, 2, 7, 20, 68, 85, 87, 94,
 }
 var literalNames = []string{
 	"", "'('", "')'", "'println!'", "'i64'", "'f64'", "'&str'", "'bool'", "'pow'",
@@ -726,11 +727,14 @@ type IExpr_opContext interface {
 	// GetHIzq returns the hIzq rule contexts.
 	GetHIzq() IExpr_opContext
 
-	// Get_primitivo returns the _primitivo rule contexts.
-	Get_primitivo() IPrimitivoContext
+	// GetOpU returns the opU rule contexts.
+	GetOpU() IExprContext
 
 	// Get_expr returns the _expr rule contexts.
 	Get_expr() IExprContext
+
+	// Get_primitivo returns the _primitivo rule contexts.
+	Get_primitivo() IPrimitivoContext
 
 	// GetHDer returns the hDer rule contexts.
 	GetHDer() IExpr_opContext
@@ -738,11 +742,14 @@ type IExpr_opContext interface {
 	// SetHIzq sets the hIzq rule contexts.
 	SetHIzq(IExpr_opContext)
 
-	// Set_primitivo sets the _primitivo rule contexts.
-	Set_primitivo(IPrimitivoContext)
+	// SetOpU sets the opU rule contexts.
+	SetOpU(IExprContext)
 
 	// Set_expr sets the _expr rule contexts.
 	Set_expr(IExprContext)
+
+	// Set_primitivo sets the _primitivo rule contexts.
+	Set_primitivo(IPrimitivoContext)
 
 	// SetHDer sets the hDer rule contexts.
 	SetHDer(IExpr_opContext)
@@ -762,10 +769,11 @@ type Expr_opContext struct {
 	parser     antlr.Parser
 	p          abstract.Expresion
 	hIzq       IExpr_opContext
-	_primitivo IPrimitivoContext
+	opU        IExprContext
 	_expr      IExprContext
-	op         antlr.Token
+	_primitivo IPrimitivoContext
 	hDer       IExpr_opContext
+	op         antlr.Token
 }
 
 func NewEmptyExpr_opContext() *Expr_opContext {
@@ -796,23 +804,41 @@ func (s *Expr_opContext) SetOp(v antlr.Token) { s.op = v }
 
 func (s *Expr_opContext) GetHIzq() IExpr_opContext { return s.hIzq }
 
-func (s *Expr_opContext) Get_primitivo() IPrimitivoContext { return s._primitivo }
+func (s *Expr_opContext) GetOpU() IExprContext { return s.opU }
 
 func (s *Expr_opContext) Get_expr() IExprContext { return s._expr }
+
+func (s *Expr_opContext) Get_primitivo() IPrimitivoContext { return s._primitivo }
 
 func (s *Expr_opContext) GetHDer() IExpr_opContext { return s.hDer }
 
 func (s *Expr_opContext) SetHIzq(v IExpr_opContext) { s.hIzq = v }
 
-func (s *Expr_opContext) Set_primitivo(v IPrimitivoContext) { s._primitivo = v }
+func (s *Expr_opContext) SetOpU(v IExprContext) { s.opU = v }
 
 func (s *Expr_opContext) Set_expr(v IExprContext) { s._expr = v }
+
+func (s *Expr_opContext) Set_primitivo(v IPrimitivoContext) { s._primitivo = v }
 
 func (s *Expr_opContext) SetHDer(v IExpr_opContext) { s.hDer = v }
 
 func (s *Expr_opContext) GetP() abstract.Expresion { return s.p }
 
 func (s *Expr_opContext) SetP(v abstract.Expresion) { s.p = v }
+
+func (s *Expr_opContext) MENOS() antlr.TerminalNode {
+	return s.GetToken(SintacticoMENOS, 0)
+}
+
+func (s *Expr_opContext) Expr() IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
 
 func (s *Expr_opContext) Primitivo() IPrimitivoContext {
 	var t = s.GetTypedRuleContext(reflect.TypeOf((*IPrimitivoContext)(nil)).Elem(), 0)
@@ -826,16 +852,6 @@ func (s *Expr_opContext) Primitivo() IPrimitivoContext {
 
 func (s *Expr_opContext) PARENA() antlr.TerminalNode {
 	return s.GetToken(SintacticoPARENA, 0)
-}
-
-func (s *Expr_opContext) Expr() IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
 }
 
 func (s *Expr_opContext) PARENC() antlr.TerminalNode {
@@ -852,6 +868,10 @@ func (s *Expr_opContext) CUATROPT() antlr.TerminalNode {
 
 func (s *Expr_opContext) POW() antlr.TerminalNode {
 	return s.GetToken(SintacticoPOW, 0)
+}
+
+func (s *Expr_opContext) COMA() antlr.TerminalNode {
+	return s.GetToken(SintacticoCOMA, 0)
 }
 
 func (s *Expr_opContext) AllExpr_op() []IExpr_opContext {
@@ -877,10 +897,6 @@ func (s *Expr_opContext) Expr_op(i int) IExpr_opContext {
 	return t.(IExpr_opContext)
 }
 
-func (s *Expr_opContext) COMA() antlr.TerminalNode {
-	return s.GetToken(SintacticoCOMA, 0)
-}
-
 func (s *Expr_opContext) R_FLOAT() antlr.TerminalNode {
 	return s.GetToken(SintacticoR_FLOAT, 0)
 }
@@ -895,10 +911,6 @@ func (s *Expr_opContext) DIVIDIDO() antlr.TerminalNode {
 
 func (s *Expr_opContext) MAS() antlr.TerminalNode {
 	return s.GetToken(SintacticoMAS, 0)
-}
-
-func (s *Expr_opContext) MENOS() antlr.TerminalNode {
-	return s.GetToken(SintacticoMENOS, 0)
 }
 
 func (s *Expr_opContext) MODULO() antlr.TerminalNode {
@@ -958,13 +970,28 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(62)
+	p.SetState(66)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case SintacticoENTERO, SintacticoCADENA:
+	case SintacticoMENOS:
 		{
 			p.SetState(34)
+			p.Match(SintacticoMENOS)
+		}
+		{
+			p.SetState(35)
+
+			var _x = p.Expr()
+
+			localctx.(*Expr_opContext).opU = _x
+			localctx.(*Expr_opContext)._expr = _x
+		}
+		localctx.(*Expr_opContext).p = expresion.NewOperacion(localctx.(*Expr_opContext).GetOpU().GetP(), "-", nil, true)
+
+	case SintacticoENTERO, SintacticoCADENA:
+		{
+			p.SetState(38)
 
 			var _x = p.Primitivo()
 
@@ -974,128 +1001,100 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 
 	case SintacticoPARENA:
 		{
-			p.SetState(37)
+			p.SetState(41)
 			p.Match(SintacticoPARENA)
 		}
 		{
-			p.SetState(38)
+			p.SetState(42)
 
 			var _x = p.Expr()
 
 			localctx.(*Expr_opContext)._expr = _x
 		}
 		{
-			p.SetState(39)
+			p.SetState(43)
 			p.Match(SintacticoPARENC)
 		}
 		localctx.(*Expr_opContext).p = localctx.(*Expr_opContext).Get_expr().GetP()
 
 	case SintacticoR_INT:
 		{
-			p.SetState(42)
+			p.SetState(46)
 			p.Match(SintacticoR_INT)
 		}
 		{
-			p.SetState(43)
+			p.SetState(47)
 			p.Match(SintacticoCUATROPT)
 		}
 		{
-			p.SetState(44)
+			p.SetState(48)
 			p.Match(SintacticoPOW)
 		}
 		{
-			p.SetState(45)
+			p.SetState(49)
 			p.Match(SintacticoPARENA)
 		}
 		{
-			p.SetState(46)
+			p.SetState(50)
 
 			var _x = p.expr_op(0)
 
 			localctx.(*Expr_opContext).hIzq = _x
 		}
 		{
-			p.SetState(47)
-
-			var _lt = p.GetTokenStream().LT(1)
-
-			localctx.(*Expr_opContext).op = _lt
-
-			_la = p.GetTokenStream().LA(1)
-
-			if !(_la == SintacticoCOMA) {
-				var _ri = p.GetErrorHandler().RecoverInline(p)
-
-				localctx.(*Expr_opContext).op = _ri
-			} else {
-				p.GetErrorHandler().ReportMatch(p)
-				p.Consume()
-			}
+			p.SetState(51)
+			p.Match(SintacticoCOMA)
 		}
 		{
-			p.SetState(48)
+			p.SetState(52)
 
 			var _x = p.expr_op(0)
 
 			localctx.(*Expr_opContext).hDer = _x
 		}
 		{
-			p.SetState(49)
+			p.SetState(53)
 			p.Match(SintacticoPARENC)
 		}
 		localctx.(*Expr_opContext).p = expresion.NewOperacion(localctx.(*Expr_opContext).GetHIzq().GetP(), "**", localctx.(*Expr_opContext).GetHDer().GetP(), false)
 
 	case SintacticoR_FLOAT:
 		{
-			p.SetState(52)
+			p.SetState(56)
 			p.Match(SintacticoR_FLOAT)
 		}
 		{
-			p.SetState(53)
+			p.SetState(57)
 			p.Match(SintacticoCUATROPT)
 		}
 		{
-			p.SetState(54)
+			p.SetState(58)
 			p.Match(SintacticoPOW)
 		}
 		{
-			p.SetState(55)
+			p.SetState(59)
 			p.Match(SintacticoPARENA)
 		}
 		{
-			p.SetState(56)
+			p.SetState(60)
 
 			var _x = p.expr_op(0)
 
 			localctx.(*Expr_opContext).hIzq = _x
 		}
 		{
-			p.SetState(57)
-
-			var _lt = p.GetTokenStream().LT(1)
-
-			localctx.(*Expr_opContext).op = _lt
-
-			_la = p.GetTokenStream().LA(1)
-
-			if !(_la == SintacticoCOMA) {
-				var _ri = p.GetErrorHandler().RecoverInline(p)
-
-				localctx.(*Expr_opContext).op = _ri
-			} else {
-				p.GetErrorHandler().ReportMatch(p)
-				p.Consume()
-			}
+			p.SetState(61)
+			p.Match(SintacticoCOMA)
 		}
 		{
-			p.SetState(58)
+			p.SetState(62)
 
 			var _x = p.expr_op(0)
 
 			localctx.(*Expr_opContext).hDer = _x
 		}
 		{
-			p.SetState(59)
+			p.SetState(63)
 			p.Match(SintacticoPARENC)
 		}
 		localctx.(*Expr_opContext).p = expresion.NewOperacion(localctx.(*Expr_opContext).GetHIzq().GetP(), "f64**", localctx.(*Expr_opContext).GetHDer().GetP(), false)
@@ -1104,7 +1103,7 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(81)
+	p.SetState(85)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext())
 
@@ -1114,20 +1113,20 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(79)
+			p.SetState(83)
 			p.GetErrorHandler().Sync(p)
 			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 2, p.GetParserRuleContext()) {
 			case 1:
 				localctx = NewExpr_opContext(p, _parentctx, _parentState)
 				localctx.(*Expr_opContext).hIzq = _prevctx
 				p.PushNewRecursionContext(localctx, _startState, SintacticoRULE_expr_op)
-				p.SetState(64)
+				p.SetState(68)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 7)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 7)", ""))
 				}
 				{
-					p.SetState(65)
+					p.SetState(69)
 
 					var _lt = p.GetTokenStream().LT(1)
 
@@ -1145,7 +1144,7 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 					}
 				}
 				{
-					p.SetState(66)
+					p.SetState(70)
 
 					var _x = p.expr_op(8)
 
@@ -1163,13 +1162,13 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 				localctx = NewExpr_opContext(p, _parentctx, _parentState)
 				localctx.(*Expr_opContext).hIzq = _prevctx
 				p.PushNewRecursionContext(localctx, _startState, SintacticoRULE_expr_op)
-				p.SetState(69)
+				p.SetState(73)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 6)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 6)", ""))
 				}
 				{
-					p.SetState(70)
+					p.SetState(74)
 
 					var _lt = p.GetTokenStream().LT(1)
 
@@ -1187,7 +1186,7 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 					}
 				}
 				{
-					p.SetState(71)
+					p.SetState(75)
 
 					var _x = p.expr_op(7)
 
@@ -1205,31 +1204,17 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 				localctx = NewExpr_opContext(p, _parentctx, _parentState)
 				localctx.(*Expr_opContext).hIzq = _prevctx
 				p.PushNewRecursionContext(localctx, _startState, SintacticoRULE_expr_op)
-				p.SetState(74)
+				p.SetState(78)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 5)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 5)", ""))
 				}
 				{
-					p.SetState(75)
-
-					var _lt = p.GetTokenStream().LT(1)
-
-					localctx.(*Expr_opContext).op = _lt
-
-					_la = p.GetTokenStream().LA(1)
-
-					if !(_la == SintacticoMODULO) {
-						var _ri = p.GetErrorHandler().RecoverInline(p)
-
-						localctx.(*Expr_opContext).op = _ri
-					} else {
-						p.GetErrorHandler().ReportMatch(p)
-						p.Consume()
-					}
+					p.SetState(79)
+					p.Match(SintacticoMODULO)
 				}
 				{
-					p.SetState(76)
+					p.SetState(80)
 
 					var _x = p.expr_op(6)
 
@@ -1246,7 +1231,7 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 			}
 
 		}
-		p.SetState(83)
+		p.SetState(87)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext())
 	}
@@ -1373,14 +1358,14 @@ func (p *Sintactico) Primitivo() (localctx IPrimitivoContext) {
 		}
 	}()
 
-	p.SetState(88)
+	p.SetState(92)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case SintacticoENTERO:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(84)
+			p.SetState(88)
 
 			var _m = p.Match(SintacticoENTERO)
 
@@ -1402,7 +1387,7 @@ func (p *Sintactico) Primitivo() (localctx IPrimitivoContext) {
 	case SintacticoCADENA:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(86)
+			p.SetState(90)
 
 			var _m = p.Match(SintacticoCADENA)
 
