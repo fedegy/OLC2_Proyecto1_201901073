@@ -34,7 +34,7 @@ var parserATN = []uint16{
 	6, 12, 6, 14, 6, 96, 11, 6, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3,
 	7, 3, 7, 7, 7, 107, 10, 7, 12, 7, 14, 7, 110, 11, 7, 3, 8, 3, 8, 3, 8,
 	3, 8, 3, 8, 3, 8, 5, 8, 118, 10, 8, 3, 8, 2, 4, 10, 12, 9, 2, 4, 6, 8,
-	10, 12, 14, 2, 5, 3, 2, 25, 26, 3, 2, 23, 24, 3, 2, 15, 18, 2, 124, 2,
+	10, 12, 14, 2, 5, 3, 2, 25, 26, 3, 2, 23, 24, 3, 2, 14, 19, 2, 124, 2,
 	16, 3, 2, 2, 2, 4, 22, 3, 2, 2, 2, 6, 27, 3, 2, 2, 2, 8, 40, 3, 2, 2, 2,
 	10, 75, 3, 2, 2, 2, 12, 97, 3, 2, 2, 2, 14, 117, 3, 2, 2, 2, 16, 17, 5,
 	4, 3, 2, 17, 18, 8, 2, 1, 2, 18, 3, 3, 2, 2, 2, 19, 21, 5, 6, 4, 2, 20,
@@ -1427,20 +1427,28 @@ func (s *Expr_relContext) Expr_rel(i int) IExpr_relContext {
 	return t.(IExpr_relContext)
 }
 
-func (s *Expr_relContext) MAYORIGUAL() antlr.TerminalNode {
-	return s.GetToken(SintacticoMAYORIGUAL, 0)
+func (s *Expr_relContext) IGUALIGUAL() antlr.TerminalNode {
+	return s.GetToken(SintacticoIGUALIGUAL, 0)
 }
 
-func (s *Expr_relContext) MENORIGUAL() antlr.TerminalNode {
-	return s.GetToken(SintacticoMENORIGUAL, 0)
+func (s *Expr_relContext) DIFERENTE() antlr.TerminalNode {
+	return s.GetToken(SintacticoDIFERENTE, 0)
 }
 
 func (s *Expr_relContext) MENORQUE() antlr.TerminalNode {
 	return s.GetToken(SintacticoMENORQUE, 0)
 }
 
+func (s *Expr_relContext) MENORIGUAL() antlr.TerminalNode {
+	return s.GetToken(SintacticoMENORIGUAL, 0)
+}
+
 func (s *Expr_relContext) MAYORQUE() antlr.TerminalNode {
 	return s.GetToken(SintacticoMAYORQUE, 0)
+}
+
+func (s *Expr_relContext) MAYORIGUAL() antlr.TerminalNode {
+	return s.GetToken(SintacticoMAYORIGUAL, 0)
 }
 
 func (s *Expr_relContext) GetRuleContext() antlr.RuleContext {
@@ -1533,7 +1541,7 @@ func (p *Sintactico) expr_rel(_p int) (localctx IExpr_relContext) {
 
 				_la = p.GetTokenStream().LA(1)
 
-				if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SintacticoMAYORIGUAL)|(1<<SintacticoMENORIGUAL)|(1<<SintacticoMAYORQUE)|(1<<SintacticoMENORQUE))) != 0) {
+				if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<SintacticoDIFERENTE)|(1<<SintacticoMAYORIGUAL)|(1<<SintacticoMENORIGUAL)|(1<<SintacticoMAYORQUE)|(1<<SintacticoMENORQUE)|(1<<SintacticoIGUALIGUAL))) != 0) {
 					var _ri = p.GetErrorHandler().RecoverInline(p)
 
 					localctx.(*Expr_relContext).op = _ri

@@ -26,7 +26,7 @@ public class Sintactico extends Parser {
 		PARENA=1, PARENC=2, PRINTLN=3, R_INT=4, R_FLOAT=5, R_STRING=6, R_BOOL=7, 
 		POW=8, AND=9, OR=10, NOT=11, DIFERENTE=12, MAYORIGUAL=13, MENORIGUAL=14, 
 		MAYORQUE=15, MENORQUE=16, IGUALIGUAL=17, CUATROPT=18, PTCOMA=19, COMA=20, 
-		MAS=21, MENOS=22, POR=23, DIVIDIDO=24, MODULO=25, FLOAT=26, ENTERO=27, 
+		MAS=21, MENOS=22, POR=23, DIVIDIDO=24, MODULO=25, ENTERO=26, FLOAT=27, 
 		CADENA=28, R_TRUE=29, R_FALSE=30, ID=31, WHITESPACE=32;
 	public static final int
 		RULE_start = 0, RULE_instrucciones = 1, RULE_instruccion = 2, RULE_expr = 3, 
@@ -53,7 +53,7 @@ public class Sintactico extends Parser {
 			null, "PARENA", "PARENC", "PRINTLN", "R_INT", "R_FLOAT", "R_STRING", 
 			"R_BOOL", "POW", "AND", "OR", "NOT", "DIFERENTE", "MAYORIGUAL", "MENORIGUAL", 
 			"MAYORQUE", "MENORQUE", "IGUALIGUAL", "CUATROPT", "PTCOMA", "COMA", "MAS", 
-			"MENOS", "POR", "DIVIDIDO", "MODULO", "FLOAT", "ENTERO", "CADENA", "R_TRUE", 
+			"MENOS", "POR", "DIVIDIDO", "MODULO", "ENTERO", "FLOAT", "CADENA", "R_TRUE", 
 			"R_FALSE", "ID", "WHITESPACE"
 		};
 	}
@@ -367,8 +367,8 @@ public class Sintactico extends Parser {
 				_localctx.p = expresion.NewOperacion(((Expr_opContext)_localctx).opU.p, "-", nil, true)
 				}
 				break;
-			case FLOAT:
 			case ENTERO:
+			case FLOAT:
 			case CADENA:
 				{
 				setState(45);
@@ -542,10 +542,12 @@ public class Sintactico extends Parser {
 		public Expr_relContext expr_rel(int i) {
 			return getRuleContext(Expr_relContext.class,i);
 		}
-		public TerminalNode MAYORIGUAL() { return getToken(Sintactico.MAYORIGUAL, 0); }
-		public TerminalNode MENORIGUAL() { return getToken(Sintactico.MENORIGUAL, 0); }
+		public TerminalNode IGUALIGUAL() { return getToken(Sintactico.IGUALIGUAL, 0); }
+		public TerminalNode DIFERENTE() { return getToken(Sintactico.DIFERENTE, 0); }
 		public TerminalNode MENORQUE() { return getToken(Sintactico.MENORQUE, 0); }
+		public TerminalNode MENORIGUAL() { return getToken(Sintactico.MENORIGUAL, 0); }
 		public TerminalNode MAYORQUE() { return getToken(Sintactico.MAYORQUE, 0); }
+		public TerminalNode MAYORIGUAL() { return getToken(Sintactico.MAYORIGUAL, 0); }
 		public Expr_relContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -592,7 +594,7 @@ public class Sintactico extends Parser {
 					setState(100);
 					((Expr_relContext)_localctx).op = _input.LT(1);
 					_la = _input.LA(1);
-					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MAYORIGUAL) | (1L << MENORIGUAL) | (1L << MAYORQUE) | (1L << MENORQUE))) != 0)) ) {
+					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << DIFERENTE) | (1L << MAYORIGUAL) | (1L << MENORIGUAL) | (1L << MAYORQUE) | (1L << MENORQUE) | (1L << IGUALIGUAL))) != 0)) ) {
 						((Expr_relContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 					}
 					else {
@@ -735,7 +737,7 @@ public class Sintactico extends Parser {
 		"\6\3\6\3\6\5\6L\n\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3"+
 		"\6\3\6\3\6\7\6]\n\6\f\6\16\6`\13\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7"+
 		"\7\7k\n\7\f\7\16\7n\13\7\3\b\3\b\3\b\3\b\3\b\3\b\5\bv\n\b\3\b\2\4\n\f"+
-		"\t\2\4\6\b\n\f\16\2\5\3\2\31\32\3\2\27\30\3\2\17\22\2|\2\20\3\2\2\2\4"+
+		"\t\2\4\6\b\n\f\16\2\5\3\2\31\32\3\2\27\30\3\2\16\23\2|\2\20\3\2\2\2\4"+
 		"\26\3\2\2\2\6\33\3\2\2\2\b(\3\2\2\2\nK\3\2\2\2\fa\3\2\2\2\16u\3\2\2\2"+
 		"\20\21\5\4\3\2\21\22\b\2\1\2\22\3\3\2\2\2\23\25\5\6\4\2\24\23\3\2\2\2"+
 		"\25\30\3\2\2\2\26\24\3\2\2\2\26\27\3\2\2\2\27\31\3\2\2\2\30\26\3\2\2\2"+
@@ -753,8 +755,8 @@ public class Sintactico extends Parser {
 		"\n\6\bZ[\b\6\1\2[]\3\2\2\2\\M\3\2\2\2\\R\3\2\2\2\\W\3\2\2\2]`\3\2\2\2"+
 		"^\\\3\2\2\2^_\3\2\2\2_\13\3\2\2\2`^\3\2\2\2ab\b\7\1\2bc\5\n\6\2cd\b\7"+
 		"\1\2dl\3\2\2\2ef\f\4\2\2fg\t\4\2\2gh\5\f\7\5hi\b\7\1\2ik\3\2\2\2je\3\2"+
-		"\2\2kn\3\2\2\2lj\3\2\2\2lm\3\2\2\2m\r\3\2\2\2nl\3\2\2\2op\7\35\2\2pv\b"+
-		"\b\1\2qr\7\36\2\2rv\b\b\1\2st\7\34\2\2tv\b\b\1\2uo\3\2\2\2uq\3\2\2\2u"+
+		"\2\2kn\3\2\2\2lj\3\2\2\2lm\3\2\2\2m\r\3\2\2\2nl\3\2\2\2op\7\34\2\2pv\b"+
+		"\b\1\2qr\7\36\2\2rv\b\b\1\2st\7\35\2\2tv\b\b\1\2uo\3\2\2\2uq\3\2\2\2u"+
 		"s\3\2\2\2v\17\3\2\2\2\t\26(K\\^lu";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());

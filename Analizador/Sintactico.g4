@@ -47,7 +47,7 @@ expr_op returns[abstract.Expresion p]
 ;
 
 expr_rel returns[abstract.Expresion p]
-    : hIzq = expr_rel op = (MAYORIGUAL | MENORIGUAL | MENORQUE | MAYORQUE) hDer = expr_rel {$p = expresion.NewRelacional($hIzq.p, $op.text, $hDer.p)}
+    : hIzq = expr_rel op = (IGUALIGUAL | DIFERENTE | MENORQUE | MENORIGUAL | MAYORQUE | MAYORIGUAL) hDer = expr_rel {$p = expresion.NewRelacional($hIzq.p, $op.text, $hDer.p)}
     | expr_op {$p = $expr_op.p}
 ;
 
