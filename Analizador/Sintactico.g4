@@ -31,7 +31,8 @@ instruccion returns[abstract.Instruccion instr]
 ;
 
 expr returns[abstract.Expresion p]
-    : expr_rel          {$p = $expr_rel.p}
+    : expr_log          {$p = $expr_log.p}
+    | expr_rel          {$p = $expr_rel.p}
     | expr_op           {$p = $expr_op.p}
 ;
 
@@ -46,11 +47,15 @@ expr_op returns[abstract.Expresion p]
     | R_FLOAT CUATROPT POW PARENA hIzq = expr_op ',' hDer = expr_op PARENC {$p = expresion.NewOperacion($hIzq.p, "f64**", $hDer.p, false)}
 ;
 
-expr_rel returns[abstract.Expresion p]
+expr_log returns[abstract.Expresion p]
     : hIzq = expr_rel '||' hDer = expr_rel {$p = expresion.NewLogicas($hIzq.p, "||", $hDer.p, false)}
     | hIzq = expr_rel '&&' hDer = expr_rel {$p = expresion.NewLogicas($hIzq.p, "&&", $hDer.p, false)}
     | '!' hIzq = expr_rel    {$p = expresion.NewLogicas($hIzq.p, "!", nil, true)}
-    | hIzq = expr_rel op = ('==' | '!=' | '<' | '<=' | '>' | '>=') hDer = expr_rel {$p = expresion.NewRelacional($hIzq.p, $op.text, $hDer.p, false)}
+    | expr_rel {$p = $expr_rel.p}
+;
+
+expr_rel returns[abstract.Expresion p]
+    : hIzq = expr_rel op = ('==' | '!=' | '<' | '<=' | '>' | '>=') hDer = expr_rel {$p = expresion.NewRelacional($hIzq.p, $op.text, $hDer.p)}
     | expr_op {$p = $expr_op.p}
 ;
 
@@ -72,5 +77,12 @@ primitivo returns[abstract.Expresion p]
         fmt.Println(err)
     }
     $p = expresion.NewPrimitivo(num, entorno.FLOAT)
+}
+| R_TRUE {
+    bool_true, err := strconv.ParseBool($R_TRUE.text)
+    if err != nil {
+        fmt.Println(err)
+    }
+    $p = expresion.NewPrimitivo(bool_true, entorno.BOOL)
 }
 ;

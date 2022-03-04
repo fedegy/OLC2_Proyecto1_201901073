@@ -21,7 +21,7 @@ func (this *TreeShapeListener) ExitStart(ctx *parser.StartContext) {
 	for i := 0; i < res.Len(); i++ {
 		r := res.GetValue(i)
 		if r != nil {
-			valor := res.GetValue(i).(abstract.Instruccion).Ejecutar(entorno.SetEntorno("hl", nil))
+			valor := res.GetValue(i).(abstract.Instruccion).Ejecutar(entorno.NewEntorno("hl", nil))
 			this.Consola += fmt.Sprintf("%v", valor)
 		}
 	}

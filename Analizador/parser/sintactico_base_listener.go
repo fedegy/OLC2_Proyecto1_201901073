@@ -51,6 +51,12 @@ func (s *BaseSintacticoListener) EnterExpr_op(ctx *Expr_opContext) {}
 // ExitExpr_op is called when production expr_op is exited.
 func (s *BaseSintacticoListener) ExitExpr_op(ctx *Expr_opContext) {}
 
+// EnterExpr_log is called when production expr_log is entered.
+func (s *BaseSintacticoListener) EnterExpr_log(ctx *Expr_logContext) {}
+
+// ExitExpr_log is called when production expr_log is exited.
+func (s *BaseSintacticoListener) ExitExpr_log(ctx *Expr_logContext) {}
+
 // EnterExpr_rel is called when production expr_rel is entered.
 func (s *BaseSintacticoListener) EnterExpr_rel(ctx *Expr_relContext) {}
 

@@ -6,7 +6,7 @@ type Entorno struct {
 	Tabla    map[string]interface{}
 }
 
-func SetEntorno(nombre string, anterior *Entorno) Entorno {
+func NewEntorno(nombre string, anterior *Entorno) Entorno {
 	env := Entorno{Nombre: nombre, Anterior: anterior}
 	env.Tabla = make(map[string]interface{})
 	return env

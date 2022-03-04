@@ -22,7 +22,7 @@ func (p Logicas) GetValor(env entorno.Entorno) entorno.RetornoTipo {
 	var valIzq entorno.RetornoTipo
 	var valDer entorno.RetornoTipo
 
-	if p.Unario == true{
+	if p.Unario == true {
 		valIzq = p.HIzq.GetValor(env)
 	}else{
 		valIzq = p.HIzq.GetValor(env)
