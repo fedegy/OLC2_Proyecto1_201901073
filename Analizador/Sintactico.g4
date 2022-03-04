@@ -48,9 +48,9 @@ expr_op returns[abstract.Expresion p]
 ;
 
 expr_log returns[abstract.Expresion p]
-    : hIzq = expr_rel '||' hDer = expr_rel {$p = expresion.NewLogicas($hIzq.p, "||", $hDer.p, false)}
-    | hIzq = expr_rel '&&' hDer = expr_rel {$p = expresion.NewLogicas($hIzq.p, "&&", $hDer.p, false)}
-    | '!' hIzq = expr_rel    {$p = expresion.NewLogicas($hIzq.p, "!", nil, true)}
+    : hIzq = expr_log '||' hDer = expr_log {$p = expresion.NewLogicas($hIzq.p, "||", $hDer.p, false)}
+    | hIzq = expr_log '&&' hDer = expr_log {$p = expresion.NewLogicas($hIzq.p, "&&", $hDer.p, false)}
+    | '!' hIzq = expr_log   {$p = expresion.NewLogicas($hIzq.p, "!", nil, true)}
     | expr_rel {$p = $expr_rel.p}
 ;
 
@@ -84,5 +84,12 @@ primitivo returns[abstract.Expresion p]
         fmt.Println(err)
     }
     $p = expresion.NewPrimitivo(bool_true, entorno.BOOL)
+}
+| R_FALSE {
+    bool_false, err := strconv.ParseBool($R_FALSE.text)
+    if err != nil {
+        fmt.Println(err)
+    }
+    $p = expresion.NewPrimitivo(bool_false, entorno.BOOL)
 }
 ;

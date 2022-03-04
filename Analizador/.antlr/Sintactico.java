@@ -280,7 +280,7 @@ public class Sintactico extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(34);
-				((ExprContext)_localctx).expr_log = expr_log();
+				((ExprContext)_localctx).expr_log = expr_log(0);
 				_localctx.p = ((ExprContext)_localctx).expr_log.p
 				}
 				break;
@@ -383,6 +383,7 @@ public class Sintactico extends Parser {
 			case FLOAT:
 			case CADENA:
 			case R_TRUE:
+			case R_FALSE:
 				{
 				setState(50);
 				((Expr_opContext)_localctx).primitivo = primitivo();
@@ -542,18 +543,21 @@ public class Sintactico extends Parser {
 
 	public static class Expr_logContext extends ParserRuleContext {
 		public abstract.Expresion p;
-		public Expr_relContext hIzq;
-		public Expr_relContext hDer;
+		public Expr_logContext hIzq;
 		public Expr_relContext expr_rel;
-		public TerminalNode OR() { return getToken(Sintactico.OR, 0); }
-		public List<Expr_relContext> expr_rel() {
-			return getRuleContexts(Expr_relContext.class);
-		}
-		public Expr_relContext expr_rel(int i) {
-			return getRuleContext(Expr_relContext.class,i);
-		}
-		public TerminalNode AND() { return getToken(Sintactico.AND, 0); }
+		public Expr_logContext hDer;
 		public TerminalNode NOT() { return getToken(Sintactico.NOT, 0); }
+		public List<Expr_logContext> expr_log() {
+			return getRuleContexts(Expr_logContext.class);
+		}
+		public Expr_logContext expr_log(int i) {
+			return getRuleContext(Expr_logContext.class,i);
+		}
+		public Expr_relContext expr_rel() {
+			return getRuleContext(Expr_relContext.class,0);
+		}
+		public TerminalNode OR() { return getToken(Sintactico.OR, 0); }
+		public TerminalNode AND() { return getToken(Sintactico.AND, 0); }
 		public Expr_logContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -561,54 +565,99 @@ public class Sintactico extends Parser {
 	}
 
 	public final Expr_logContext expr_log() throws RecognitionException {
-		Expr_logContext _localctx = new Expr_logContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_expr_log);
+		return expr_log(0);
+	}
+
+	private Expr_logContext expr_log(int _p) throws RecognitionException {
+		ParserRuleContext _parentctx = _ctx;
+		int _parentState = getState();
+		Expr_logContext _localctx = new Expr_logContext(_ctx, _parentState);
+		Expr_logContext _prevctx = _localctx;
+		int _startState = 10;
+		enterRecursionRule(_localctx, 10, RULE_expr_log, _p);
 		try {
-			setState(117);
+			int _alt;
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(108);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
+			switch (_input.LA(1)) {
+			case NOT:
 				{
-				setState(100);
-				((Expr_logContext)_localctx).hIzq = expr_rel(0);
 				setState(101);
-				match(OR);
-				setState(102);
-				((Expr_logContext)_localctx).hDer = expr_rel(0);
-				_localctx.p = expresion.NewLogicas(((Expr_logContext)_localctx).hIzq.p, "||", ((Expr_logContext)_localctx).hDer.p, false)
-				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(105);
-				((Expr_logContext)_localctx).hIzq = expr_rel(0);
-				setState(106);
-				match(AND);
-				setState(107);
-				((Expr_logContext)_localctx).hDer = expr_rel(0);
-				_localctx.p = expresion.NewLogicas(((Expr_logContext)_localctx).hIzq.p, "&&", ((Expr_logContext)_localctx).hDer.p, false)
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(110);
 				match(NOT);
-				setState(111);
-				((Expr_logContext)_localctx).hIzq = expr_rel(0);
+				setState(102);
+				((Expr_logContext)_localctx).hIzq = expr_log(2);
 				_localctx.p = expresion.NewLogicas(((Expr_logContext)_localctx).hIzq.p, "!", nil, true)
 				}
 				break;
-			case 4:
-				enterOuterAlt(_localctx, 4);
+			case PARENA:
+			case R_INT:
+			case R_FLOAT:
+			case MENOS:
+			case ENTERO:
+			case FLOAT:
+			case CADENA:
+			case R_TRUE:
+			case R_FALSE:
 				{
-				setState(114);
+				setState(105);
 				((Expr_logContext)_localctx).expr_rel = expr_rel(0);
 				_localctx.p = ((Expr_logContext)_localctx).expr_rel.p
 				}
 				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			_ctx.stop = _input.LT(-1);
+			setState(122);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					if ( _parseListeners!=null ) triggerExitRuleEvent();
+					_prevctx = _localctx;
+					{
+					setState(120);
+					_errHandler.sync(this);
+					switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
+					case 1:
+						{
+						_localctx = new Expr_logContext(_parentctx, _parentState);
+						_localctx.hIzq = _prevctx;
+						_localctx.hIzq = _prevctx;
+						pushNewRecursionContext(_localctx, _startState, RULE_expr_log);
+						setState(110);
+						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
+						setState(111);
+						match(OR);
+						setState(112);
+						((Expr_logContext)_localctx).hDer = expr_log(5);
+						_localctx.p = expresion.NewLogicas(((Expr_logContext)_localctx).hIzq.p, "||", ((Expr_logContext)_localctx).hDer.p, false)
+						}
+						break;
+					case 2:
+						{
+						_localctx = new Expr_logContext(_parentctx, _parentState);
+						_localctx.hIzq = _prevctx;
+						_localctx.hIzq = _prevctx;
+						pushNewRecursionContext(_localctx, _startState, RULE_expr_log);
+						setState(115);
+						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
+						setState(116);
+						match(AND);
+						setState(117);
+						((Expr_logContext)_localctx).hDer = expr_log(4);
+						_localctx.p = expresion.NewLogicas(((Expr_logContext)_localctx).hIzq.p, "&&", ((Expr_logContext)_localctx).hDer.p, false)
+						}
+						break;
+					}
+					} 
+				}
+				setState(124);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -617,7 +666,7 @@ public class Sintactico extends Parser {
 			_errHandler.recover(this, re);
 		}
 		finally {
-			exitRule();
+			unrollRecursionContexts(_parentctx);
 		}
 		return _localctx;
 	}
@@ -666,14 +715,14 @@ public class Sintactico extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(120);
+			setState(126);
 			((Expr_relContext)_localctx).expr_op = expr_op(0);
 			_localctx.p = ((Expr_relContext)_localctx).expr_op.p
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(130);
+			setState(136);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
@@ -684,9 +733,9 @@ public class Sintactico extends Parser {
 					_localctx.hIzq = _prevctx;
 					_localctx.hIzq = _prevctx;
 					pushNewRecursionContext(_localctx, _startState, RULE_expr_rel);
-					setState(123);
+					setState(129);
 					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-					setState(124);
+					setState(130);
 					((Expr_relContext)_localctx).op = _input.LT(1);
 					_la = _input.LA(1);
 					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << DIFERENTE) | (1L << MAYORIGUAL) | (1L << MENORIGUAL) | (1L << MAYORQUE) | (1L << MENORQUE) | (1L << IGUALIGUAL))) != 0)) ) {
@@ -697,15 +746,15 @@ public class Sintactico extends Parser {
 						_errHandler.reportMatch(this);
 						consume();
 					}
-					setState(125);
+					setState(131);
 					((Expr_relContext)_localctx).hDer = expr_rel(3);
 					_localctx.p = expresion.NewRelacional(((Expr_relContext)_localctx).hIzq.p, (((Expr_relContext)_localctx).op!=null?((Expr_relContext)_localctx).op.getText():null), ((Expr_relContext)_localctx).hDer.p)
 					}
 					} 
 				}
-				setState(132);
+				setState(138);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			}
 			}
 		}
@@ -726,10 +775,12 @@ public class Sintactico extends Parser {
 		public Token CADENA;
 		public Token FLOAT;
 		public Token R_TRUE;
+		public Token R_FALSE;
 		public TerminalNode ENTERO() { return getToken(Sintactico.ENTERO, 0); }
 		public TerminalNode CADENA() { return getToken(Sintactico.CADENA, 0); }
 		public TerminalNode FLOAT() { return getToken(Sintactico.FLOAT, 0); }
 		public TerminalNode R_TRUE() { return getToken(Sintactico.R_TRUE, 0); }
+		public TerminalNode R_FALSE() { return getToken(Sintactico.R_FALSE, 0); }
 		public PrimitivoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -740,13 +791,13 @@ public class Sintactico extends Parser {
 		PrimitivoContext _localctx = new PrimitivoContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_primitivo);
 		try {
-			setState(141);
+			setState(149);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ENTERO:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(133);
+				setState(139);
 				((PrimitivoContext)_localctx).ENTERO = match(ENTERO);
 
 				    num, err := strconv.Atoi((((PrimitivoContext)_localctx).ENTERO!=null?((PrimitivoContext)_localctx).ENTERO.getText():null))
@@ -760,7 +811,7 @@ public class Sintactico extends Parser {
 			case CADENA:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(135);
+				setState(141);
 				((PrimitivoContext)_localctx).CADENA = match(CADENA);
 
 				    str := (((PrimitivoContext)_localctx).CADENA!=null?((PrimitivoContext)_localctx).CADENA.getText():null)[1:len((((PrimitivoContext)_localctx).CADENA!=null?((PrimitivoContext)_localctx).CADENA.getText():null))-1]
@@ -771,7 +822,7 @@ public class Sintactico extends Parser {
 			case FLOAT:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(137);
+				setState(143);
 				((PrimitivoContext)_localctx).FLOAT = match(FLOAT);
 
 				    num, err := strconv.ParseFloat((((PrimitivoContext)_localctx).FLOAT!=null?((PrimitivoContext)_localctx).FLOAT.getText():null), 64)
@@ -785,7 +836,7 @@ public class Sintactico extends Parser {
 			case R_TRUE:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(139);
+				setState(145);
 				((PrimitivoContext)_localctx).R_TRUE = match(R_TRUE);
 
 				    bool_true, err := strconv.ParseBool((((PrimitivoContext)_localctx).R_TRUE!=null?((PrimitivoContext)_localctx).R_TRUE.getText():null))
@@ -793,6 +844,20 @@ public class Sintactico extends Parser {
 				        fmt.Println(err)
 				    }
 				    _localctx.p = expresion.NewPrimitivo(bool_true, entorno.BOOL)
+
+				}
+				break;
+			case R_FALSE:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(147);
+				((PrimitivoContext)_localctx).R_FALSE = match(R_FALSE);
+
+				    bool_false, err := strconv.ParseBool((((PrimitivoContext)_localctx).R_FALSE!=null?((PrimitivoContext)_localctx).R_FALSE.getText():null))
+				    if err != nil {
+				        fmt.Println(err)
+				    }
+				    _localctx.p = expresion.NewPrimitivo(bool_false, entorno.BOOL)
 
 				}
 				break;
@@ -815,6 +880,8 @@ public class Sintactico extends Parser {
 		switch (ruleIndex) {
 		case 4:
 			return expr_op_sempred((Expr_opContext)_localctx, predIndex);
+		case 5:
+			return expr_log_sempred((Expr_logContext)_localctx, predIndex);
 		case 6:
 			return expr_rel_sempred((Expr_relContext)_localctx, predIndex);
 		}
@@ -831,53 +898,65 @@ public class Sintactico extends Parser {
 		}
 		return true;
 	}
-	private boolean expr_rel_sempred(Expr_relContext _localctx, int predIndex) {
+	private boolean expr_log_sempred(Expr_logContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 3:
+			return precpred(_ctx, 4);
+		case 4:
+			return precpred(_ctx, 3);
+		}
+		return true;
+	}
+	private boolean expr_rel_sempred(Expr_relContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 5:
 			return precpred(_ctx, 2);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\"\u0092\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\"\u009a\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\2\3\3"+
 		"\7\3\27\n\3\f\3\16\3\32\13\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3"+
 		"\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5.\n\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3"+
 		"\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6"+
 		"\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\5\6Q\n\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6"+
 		"\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\7\6b\n\6\f\6\16\6e\13\6\3\7\3\7\3\7\3"+
-		"\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\5\7x\n\7\3\b\3"+
-		"\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\7\b\u0083\n\b\f\b\16\b\u0086\13\b\3\t\3"+
-		"\t\3\t\3\t\3\t\3\t\3\t\3\t\5\t\u0090\n\t\3\t\2\4\n\16\n\2\4\6\b\n\f\16"+
-		"\20\2\5\3\2\31\32\3\2\27\30\3\2\16\23\2\u009a\2\22\3\2\2\2\4\30\3\2\2"+
-		"\2\6\35\3\2\2\2\b-\3\2\2\2\nP\3\2\2\2\fw\3\2\2\2\16y\3\2\2\2\20\u008f"+
-		"\3\2\2\2\22\23\5\4\3\2\23\24\b\2\1\2\24\3\3\2\2\2\25\27\5\6\4\2\26\25"+
-		"\3\2\2\2\27\32\3\2\2\2\30\26\3\2\2\2\30\31\3\2\2\2\31\33\3\2\2\2\32\30"+
-		"\3\2\2\2\33\34\b\3\1\2\34\5\3\2\2\2\35\36\7\5\2\2\36\37\7\3\2\2\37 \5"+
-		"\b\5\2 !\7\4\2\2!\"\7\25\2\2\"#\b\4\1\2#\7\3\2\2\2$%\5\f\7\2%&\b\5\1\2"+
-		"&.\3\2\2\2\'(\5\16\b\2()\b\5\1\2).\3\2\2\2*+\5\n\6\2+,\b\5\1\2,.\3\2\2"+
-		"\2-$\3\2\2\2-\'\3\2\2\2-*\3\2\2\2.\t\3\2\2\2/\60\b\6\1\2\60\61\7\30\2"+
-		"\2\61\62\5\b\5\2\62\63\b\6\1\2\63Q\3\2\2\2\64\65\5\20\t\2\65\66\b\6\1"+
-		"\2\66Q\3\2\2\2\678\7\3\2\289\5\b\5\29:\7\4\2\2:;\b\6\1\2;Q\3\2\2\2<=\7"+
-		"\6\2\2=>\7\24\2\2>?\7\n\2\2?@\7\3\2\2@A\5\n\6\2AB\7\26\2\2BC\5\n\6\2C"+
-		"D\7\4\2\2DE\b\6\1\2EQ\3\2\2\2FG\7\7\2\2GH\7\24\2\2HI\7\n\2\2IJ\7\3\2\2"+
-		"JK\5\n\6\2KL\7\26\2\2LM\5\n\6\2MN\7\4\2\2NO\b\6\1\2OQ\3\2\2\2P/\3\2\2"+
-		"\2P\64\3\2\2\2P\67\3\2\2\2P<\3\2\2\2PF\3\2\2\2Qc\3\2\2\2RS\f\t\2\2ST\t"+
-		"\2\2\2TU\5\n\6\nUV\b\6\1\2Vb\3\2\2\2WX\f\b\2\2XY\t\3\2\2YZ\5\n\6\tZ[\b"+
-		"\6\1\2[b\3\2\2\2\\]\f\7\2\2]^\7\33\2\2^_\5\n\6\b_`\b\6\1\2`b\3\2\2\2a"+
-		"R\3\2\2\2aW\3\2\2\2a\\\3\2\2\2be\3\2\2\2ca\3\2\2\2cd\3\2\2\2d\13\3\2\2"+
-		"\2ec\3\2\2\2fg\5\16\b\2gh\7\f\2\2hi\5\16\b\2ij\b\7\1\2jx\3\2\2\2kl\5\16"+
-		"\b\2lm\7\13\2\2mn\5\16\b\2no\b\7\1\2ox\3\2\2\2pq\7\r\2\2qr\5\16\b\2rs"+
-		"\b\7\1\2sx\3\2\2\2tu\5\16\b\2uv\b\7\1\2vx\3\2\2\2wf\3\2\2\2wk\3\2\2\2"+
-		"wp\3\2\2\2wt\3\2\2\2x\r\3\2\2\2yz\b\b\1\2z{\5\n\6\2{|\b\b\1\2|\u0084\3"+
-		"\2\2\2}~\f\4\2\2~\177\t\4\2\2\177\u0080\5\16\b\5\u0080\u0081\b\b\1\2\u0081"+
-		"\u0083\3\2\2\2\u0082}\3\2\2\2\u0083\u0086\3\2\2\2\u0084\u0082\3\2\2\2"+
-		"\u0084\u0085\3\2\2\2\u0085\17\3\2\2\2\u0086\u0084\3\2\2\2\u0087\u0088"+
-		"\7\34\2\2\u0088\u0090\b\t\1\2\u0089\u008a\7\36\2\2\u008a\u0090\b\t\1\2"+
-		"\u008b\u008c\7\35\2\2\u008c\u0090\b\t\1\2\u008d\u008e\7\37\2\2\u008e\u0090"+
-		"\b\t\1\2\u008f\u0087\3\2\2\2\u008f\u0089\3\2\2\2\u008f\u008b\3\2\2\2\u008f"+
-		"\u008d\3\2\2\2\u0090\21\3\2\2\2\n\30-Pacw\u0084\u008f";
+		"\7\3\7\3\7\3\7\3\7\5\7o\n\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\7"+
+		"\7{\n\7\f\7\16\7~\13\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\7\b\u0089\n"+
+		"\b\f\b\16\b\u008c\13\b\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\5\t\u0098"+
+		"\n\t\3\t\2\5\n\f\16\n\2\4\6\b\n\f\16\20\2\5\3\2\31\32\3\2\27\30\3\2\16"+
+		"\23\2\u00a3\2\22\3\2\2\2\4\30\3\2\2\2\6\35\3\2\2\2\b-\3\2\2\2\nP\3\2\2"+
+		"\2\fn\3\2\2\2\16\177\3\2\2\2\20\u0097\3\2\2\2\22\23\5\4\3\2\23\24\b\2"+
+		"\1\2\24\3\3\2\2\2\25\27\5\6\4\2\26\25\3\2\2\2\27\32\3\2\2\2\30\26\3\2"+
+		"\2\2\30\31\3\2\2\2\31\33\3\2\2\2\32\30\3\2\2\2\33\34\b\3\1\2\34\5\3\2"+
+		"\2\2\35\36\7\5\2\2\36\37\7\3\2\2\37 \5\b\5\2 !\7\4\2\2!\"\7\25\2\2\"#"+
+		"\b\4\1\2#\7\3\2\2\2$%\5\f\7\2%&\b\5\1\2&.\3\2\2\2\'(\5\16\b\2()\b\5\1"+
+		"\2).\3\2\2\2*+\5\n\6\2+,\b\5\1\2,.\3\2\2\2-$\3\2\2\2-\'\3\2\2\2-*\3\2"+
+		"\2\2.\t\3\2\2\2/\60\b\6\1\2\60\61\7\30\2\2\61\62\5\b\5\2\62\63\b\6\1\2"+
+		"\63Q\3\2\2\2\64\65\5\20\t\2\65\66\b\6\1\2\66Q\3\2\2\2\678\7\3\2\289\5"+
+		"\b\5\29:\7\4\2\2:;\b\6\1\2;Q\3\2\2\2<=\7\6\2\2=>\7\24\2\2>?\7\n\2\2?@"+
+		"\7\3\2\2@A\5\n\6\2AB\7\26\2\2BC\5\n\6\2CD\7\4\2\2DE\b\6\1\2EQ\3\2\2\2"+
+		"FG\7\7\2\2GH\7\24\2\2HI\7\n\2\2IJ\7\3\2\2JK\5\n\6\2KL\7\26\2\2LM\5\n\6"+
+		"\2MN\7\4\2\2NO\b\6\1\2OQ\3\2\2\2P/\3\2\2\2P\64\3\2\2\2P\67\3\2\2\2P<\3"+
+		"\2\2\2PF\3\2\2\2Qc\3\2\2\2RS\f\t\2\2ST\t\2\2\2TU\5\n\6\nUV\b\6\1\2Vb\3"+
+		"\2\2\2WX\f\b\2\2XY\t\3\2\2YZ\5\n\6\tZ[\b\6\1\2[b\3\2\2\2\\]\f\7\2\2]^"+
+		"\7\33\2\2^_\5\n\6\b_`\b\6\1\2`b\3\2\2\2aR\3\2\2\2aW\3\2\2\2a\\\3\2\2\2"+
+		"be\3\2\2\2ca\3\2\2\2cd\3\2\2\2d\13\3\2\2\2ec\3\2\2\2fg\b\7\1\2gh\7\r\2"+
+		"\2hi\5\f\7\4ij\b\7\1\2jo\3\2\2\2kl\5\16\b\2lm\b\7\1\2mo\3\2\2\2nf\3\2"+
+		"\2\2nk\3\2\2\2o|\3\2\2\2pq\f\6\2\2qr\7\f\2\2rs\5\f\7\7st\b\7\1\2t{\3\2"+
+		"\2\2uv\f\5\2\2vw\7\13\2\2wx\5\f\7\6xy\b\7\1\2y{\3\2\2\2zp\3\2\2\2zu\3"+
+		"\2\2\2{~\3\2\2\2|z\3\2\2\2|}\3\2\2\2}\r\3\2\2\2~|\3\2\2\2\177\u0080\b"+
+		"\b\1\2\u0080\u0081\5\n\6\2\u0081\u0082\b\b\1\2\u0082\u008a\3\2\2\2\u0083"+
+		"\u0084\f\4\2\2\u0084\u0085\t\4\2\2\u0085\u0086\5\16\b\5\u0086\u0087\b"+
+		"\b\1\2\u0087\u0089\3\2\2\2\u0088\u0083\3\2\2\2\u0089\u008c\3\2\2\2\u008a"+
+		"\u0088\3\2\2\2\u008a\u008b\3\2\2\2\u008b\17\3\2\2\2\u008c\u008a\3\2\2"+
+		"\2\u008d\u008e\7\34\2\2\u008e\u0098\b\t\1\2\u008f\u0090\7\36\2\2\u0090"+
+		"\u0098\b\t\1\2\u0091\u0092\7\35\2\2\u0092\u0098\b\t\1\2\u0093\u0094\7"+
+		"\37\2\2\u0094\u0098\b\t\1\2\u0095\u0096\7 \2\2\u0096\u0098\b\t\1\2\u0097"+
+		"\u008d\3\2\2\2\u0097\u008f\3\2\2\2\u0097\u0091\3\2\2\2\u0097\u0093\3\2"+
+		"\2\2\u0097\u0095\3\2\2\2\u0098\21\3\2\2\2\f\30-Pacnz|\u008a\u0097";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
