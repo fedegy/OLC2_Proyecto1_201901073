@@ -55,21 +55,22 @@ var parserATN = []uint16{
 	2, 2, 69, 70, 5, 10, 6, 2, 70, 71, 7, 22, 2, 2, 71, 72, 5, 10, 6, 2, 72,
 	73, 7, 4, 2, 2, 73, 74, 8, 6, 1, 2, 74, 76, 3, 2, 2, 2, 75, 42, 3, 2, 2,
 	2, 75, 47, 3, 2, 2, 2, 75, 50, 3, 2, 2, 2, 75, 55, 3, 2, 2, 2, 75, 65,
-	3, 2, 2, 2, 76, 94, 3, 2, 2, 2, 77, 78, 12, 9, 2, 2, 78, 79, 9, 2, 2, 2,
-	79, 80, 5, 10, 6, 10, 80, 81, 8, 6, 1, 2, 81, 93, 3, 2, 2, 2, 82, 83, 12,
-	8, 2, 2, 83, 84, 9, 3, 2, 2, 84, 85, 5, 10, 6, 9, 85, 86, 8, 6, 1, 2, 86,
-	93, 3, 2, 2, 2, 87, 88, 12, 7, 2, 2, 88, 89, 7, 27, 2, 2, 89, 90, 5, 10,
-	6, 8, 90, 91, 8, 6, 1, 2, 91, 93, 3, 2, 2, 2, 92, 77, 3, 2, 2, 2, 92, 82,
-	3, 2, 2, 2, 92, 87, 3, 2, 2, 2, 93, 96, 3, 2, 2, 2, 94, 92, 3, 2, 2, 2,
-	94, 95, 3, 2, 2, 2, 95, 11, 3, 2, 2, 2, 96, 94, 3, 2, 2, 2, 97, 98, 8,
-	7, 1, 2, 98, 99, 5, 10, 6, 2, 99, 100, 8, 7, 1, 2, 100, 108, 3, 2, 2, 2,
-	101, 102, 12, 4, 2, 2, 102, 103, 9, 4, 2, 2, 103, 104, 5, 12, 7, 5, 104,
-	105, 8, 7, 1, 2, 105, 107, 3, 2, 2, 2, 106, 101, 3, 2, 2, 2, 107, 110,
-	3, 2, 2, 2, 108, 106, 3, 2, 2, 2, 108, 109, 3, 2, 2, 2, 109, 13, 3, 2,
-	2, 2, 110, 108, 3, 2, 2, 2, 111, 112, 7, 28, 2, 2, 112, 118, 8, 8, 1, 2,
-	113, 114, 7, 30, 2, 2, 114, 118, 8, 8, 1, 2, 115, 116, 7, 29, 2, 2, 116,
-	118, 8, 8, 1, 2, 117, 111, 3, 2, 2, 2, 117, 113, 3, 2, 2, 2, 117, 115,
-	3, 2, 2, 2, 118, 15, 3, 2, 2, 2, 9, 22, 40, 75, 92, 94, 108, 117,
+	3, 2, 2, 2, 76, 94, 3, 2, 2, 2, 77, 78, 12, 10, 2, 2, 78, 79, 9, 2, 2,
+	2, 79, 80, 5, 10, 6, 11, 80, 81, 8, 6, 1, 2, 81, 93, 3, 2, 2, 2, 82, 83,
+	12, 9, 2, 2, 83, 84, 9, 3, 2, 2, 84, 85, 5, 10, 6, 10, 85, 86, 8, 6, 1,
+	2, 86, 93, 3, 2, 2, 2, 87, 88, 12, 8, 2, 2, 88, 89, 7, 27, 2, 2, 89, 90,
+	5, 10, 6, 9, 90, 91, 8, 6, 1, 2, 91, 93, 3, 2, 2, 2, 92, 77, 3, 2, 2, 2,
+	92, 82, 3, 2, 2, 2, 92, 87, 3, 2, 2, 2, 93, 96, 3, 2, 2, 2, 94, 92, 3,
+	2, 2, 2, 94, 95, 3, 2, 2, 2, 95, 11, 3, 2, 2, 2, 96, 94, 3, 2, 2, 2, 97,
+	98, 8, 7, 1, 2, 98, 99, 5, 10, 6, 2, 99, 100, 8, 7, 1, 2, 100, 108, 3,
+	2, 2, 2, 101, 102, 12, 4, 2, 2, 102, 103, 9, 4, 2, 2, 103, 104, 5, 12,
+	7, 5, 104, 105, 8, 7, 1, 2, 105, 107, 3, 2, 2, 2, 106, 101, 3, 2, 2, 2,
+	107, 110, 3, 2, 2, 2, 108, 106, 3, 2, 2, 2, 108, 109, 3, 2, 2, 2, 109,
+	13, 3, 2, 2, 2, 110, 108, 3, 2, 2, 2, 111, 112, 7, 28, 2, 2, 112, 118,
+	8, 8, 1, 2, 113, 114, 7, 30, 2, 2, 114, 118, 8, 8, 1, 2, 115, 116, 7, 29,
+	2, 2, 116, 118, 8, 8, 1, 2, 117, 111, 3, 2, 2, 2, 117, 113, 3, 2, 2, 2,
+	117, 115, 3, 2, 2, 2, 118, 15, 3, 2, 2, 2, 9, 22, 40, 75, 92, 94, 108,
+	117,
 }
 var literalNames = []string{
 	"", "'('", "')'", "'println!'", "'i64'", "'f64'", "'&str'", "'bool'", "'pow'",
@@ -1184,8 +1185,8 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 				p.PushNewRecursionContext(localctx, _startState, SintacticoRULE_expr_op)
 				p.SetState(75)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 7)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 7)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 8)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 8)", ""))
 				}
 				{
 					p.SetState(76)
@@ -1208,7 +1209,7 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 				{
 					p.SetState(77)
 
-					var _x = p.expr_op(8)
+					var _x = p.expr_op(9)
 
 					localctx.(*Expr_opContext).hDer = _x
 				}
@@ -1226,8 +1227,8 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 				p.PushNewRecursionContext(localctx, _startState, SintacticoRULE_expr_op)
 				p.SetState(80)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 6)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 6)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 7)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 7)", ""))
 				}
 				{
 					p.SetState(81)
@@ -1250,7 +1251,7 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 				{
 					p.SetState(82)
 
-					var _x = p.expr_op(7)
+					var _x = p.expr_op(8)
 
 					localctx.(*Expr_opContext).hDer = _x
 				}
@@ -1268,8 +1269,8 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 				p.PushNewRecursionContext(localctx, _startState, SintacticoRULE_expr_op)
 				p.SetState(85)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 5)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 5)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 6)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 6)", ""))
 				}
 				{
 					p.SetState(86)
@@ -1278,7 +1279,7 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 				{
 					p.SetState(87)
 
-					var _x = p.expr_op(6)
+					var _x = p.expr_op(7)
 
 					localctx.(*Expr_opContext).hDer = _x
 				}
@@ -1812,13 +1813,13 @@ func (p *Sintactico) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex in
 func (p *Sintactico) Expr_op_Sempred(localctx antlr.RuleContext, predIndex int) bool {
 	switch predIndex {
 	case 0:
-		return p.Precpred(p.GetParserRuleContext(), 7)
+		return p.Precpred(p.GetParserRuleContext(), 8)
 
 	case 1:
-		return p.Precpred(p.GetParserRuleContext(), 6)
+		return p.Precpred(p.GetParserRuleContext(), 7)
 
 	case 2:
-		return p.Precpred(p.GetParserRuleContext(), 5)
+		return p.Precpred(p.GetParserRuleContext(), 6)
 
 	default:
 		panic("No predicate with index: " + fmt.Sprint(predIndex))

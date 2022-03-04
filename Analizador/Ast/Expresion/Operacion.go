@@ -103,7 +103,7 @@ func (p Operacion) GetValor(env entorno.Entorno) entorno.RetornoTipo {
 				if valIzq.Tipo == entorno.INT {
 					return entorno.RetornoTipo{Tipo: valIzq.Tipo, Valor: -valIzq.Valor.(int)}
 				} else if valIzq.Tipo == entorno.FLOAT {
-					return entorno.RetornoTipo{Tipo: valIzq.Tipo, Valor: -valDer.Valor.(float64)}
+					return entorno.RetornoTipo{Tipo: valIzq.Tipo, Valor: -valIzq.Valor.(float64)}
 				}
 			}
 

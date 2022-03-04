@@ -47,7 +47,10 @@ expr_op returns[abstract.Expresion p]
 ;
 
 expr_rel returns[abstract.Expresion p]
-    : hIzq = expr_rel op = (IGUALIGUAL | DIFERENTE | MENORQUE | MENORIGUAL | MAYORQUE | MAYORIGUAL) hDer = expr_rel {$p = expresion.NewRelacional($hIzq.p, $op.text, $hDer.p)}
+    : hIzq = expr_rel '||' hDer = expr_rel {$p = expresion.NewLogicas($hIzq.p, "||", $hDer.p, false)}
+    | hIzq = expr_rel '&&' hDer = expr_rel {$p = expresion.NewLogicas($hIzq.p, "&&", $hDer.p, false)}
+    | '!' hIzq = expr_rel    {$p = expresion.NewLogicas($hIzq.p, "!", nil, true)}
+    | hIzq = expr_rel op = ('==' | '!=' | '<' | '<=' | '>' | '>=') hDer = expr_rel {$p = expresion.NewRelacional($hIzq.p, $op.text, $hDer.p, false)}
     | expr_op {$p = $expr_op.p}
 ;
 
