@@ -22,7 +22,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 34, 154,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 35, 156,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 3, 2, 3, 2, 3, 2, 3, 3, 7, 3, 23, 10, 3, 12, 3,
 	14, 3, 26, 11, 3, 3, 3, 3, 3, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4,
@@ -36,40 +36,40 @@ var parserATN = []uint16{
 	3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 3, 7, 7, 7, 123, 10, 7, 12, 7, 14,
 	7, 126, 11, 7, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 3, 8, 7,
 	8, 137, 10, 8, 12, 8, 14, 8, 140, 11, 8, 3, 9, 3, 9, 3, 9, 3, 9, 3, 9,
-	3, 9, 3, 9, 3, 9, 3, 9, 3, 9, 5, 9, 152, 10, 9, 3, 9, 2, 5, 10, 12, 14,
-	10, 2, 4, 6, 8, 10, 12, 14, 16, 2, 5, 3, 2, 25, 26, 3, 2, 23, 24, 3, 2,
-	14, 19, 2, 163, 2, 18, 3, 2, 2, 2, 4, 24, 3, 2, 2, 2, 6, 29, 3, 2, 2, 2,
-	8, 45, 3, 2, 2, 2, 10, 80, 3, 2, 2, 2, 12, 110, 3, 2, 2, 2, 14, 127, 3,
-	2, 2, 2, 16, 151, 3, 2, 2, 2, 18, 19, 5, 4, 3, 2, 19, 20, 8, 2, 1, 2, 20,
-	3, 3, 2, 2, 2, 21, 23, 5, 6, 4, 2, 22, 21, 3, 2, 2, 2, 23, 26, 3, 2, 2,
-	2, 24, 22, 3, 2, 2, 2, 24, 25, 3, 2, 2, 2, 25, 27, 3, 2, 2, 2, 26, 24,
-	3, 2, 2, 2, 27, 28, 8, 3, 1, 2, 28, 5, 3, 2, 2, 2, 29, 30, 7, 5, 2, 2,
-	30, 31, 7, 3, 2, 2, 31, 32, 5, 8, 5, 2, 32, 33, 7, 4, 2, 2, 33, 34, 7,
-	21, 2, 2, 34, 35, 8, 4, 1, 2, 35, 7, 3, 2, 2, 2, 36, 37, 5, 12, 7, 2, 37,
-	38, 8, 5, 1, 2, 38, 46, 3, 2, 2, 2, 39, 40, 5, 14, 8, 2, 40, 41, 8, 5,
-	1, 2, 41, 46, 3, 2, 2, 2, 42, 43, 5, 10, 6, 2, 43, 44, 8, 5, 1, 2, 44,
-	46, 3, 2, 2, 2, 45, 36, 3, 2, 2, 2, 45, 39, 3, 2, 2, 2, 45, 42, 3, 2, 2,
-	2, 46, 9, 3, 2, 2, 2, 47, 48, 8, 6, 1, 2, 48, 49, 7, 24, 2, 2, 49, 50,
-	5, 8, 5, 2, 50, 51, 8, 6, 1, 2, 51, 81, 3, 2, 2, 2, 52, 53, 5, 16, 9, 2,
-	53, 54, 8, 6, 1, 2, 54, 81, 3, 2, 2, 2, 55, 56, 7, 3, 2, 2, 56, 57, 5,
-	8, 5, 2, 57, 58, 7, 4, 2, 2, 58, 59, 8, 6, 1, 2, 59, 81, 3, 2, 2, 2, 60,
-	61, 7, 6, 2, 2, 61, 62, 7, 20, 2, 2, 62, 63, 7, 10, 2, 2, 63, 64, 7, 3,
-	2, 2, 64, 65, 5, 10, 6, 2, 65, 66, 7, 22, 2, 2, 66, 67, 5, 10, 6, 2, 67,
-	68, 7, 4, 2, 2, 68, 69, 8, 6, 1, 2, 69, 81, 3, 2, 2, 2, 70, 71, 7, 7, 2,
-	2, 71, 72, 7, 20, 2, 2, 72, 73, 7, 10, 2, 2, 73, 74, 7, 3, 2, 2, 74, 75,
-	5, 10, 6, 2, 75, 76, 7, 22, 2, 2, 76, 77, 5, 10, 6, 2, 77, 78, 7, 4, 2,
-	2, 78, 79, 8, 6, 1, 2, 79, 81, 3, 2, 2, 2, 80, 47, 3, 2, 2, 2, 80, 52,
-	3, 2, 2, 2, 80, 55, 3, 2, 2, 2, 80, 60, 3, 2, 2, 2, 80, 70, 3, 2, 2, 2,
-	81, 99, 3, 2, 2, 2, 82, 83, 12, 9, 2, 2, 83, 84, 9, 2, 2, 2, 84, 85, 5,
-	10, 6, 10, 85, 86, 8, 6, 1, 2, 86, 98, 3, 2, 2, 2, 87, 88, 12, 8, 2, 2,
-	88, 89, 9, 3, 2, 2, 89, 90, 5, 10, 6, 9, 90, 91, 8, 6, 1, 2, 91, 98, 3,
-	2, 2, 2, 92, 93, 12, 7, 2, 2, 93, 94, 7, 27, 2, 2, 94, 95, 5, 10, 6, 8,
-	95, 96, 8, 6, 1, 2, 96, 98, 3, 2, 2, 2, 97, 82, 3, 2, 2, 2, 97, 87, 3,
-	2, 2, 2, 97, 92, 3, 2, 2, 2, 98, 101, 3, 2, 2, 2, 99, 97, 3, 2, 2, 2, 99,
-	100, 3, 2, 2, 2, 100, 11, 3, 2, 2, 2, 101, 99, 3, 2, 2, 2, 102, 103, 8,
-	7, 1, 2, 103, 104, 7, 13, 2, 2, 104, 105, 5, 12, 7, 4, 105, 106, 8, 7,
-	1, 2, 106, 111, 3, 2, 2, 2, 107, 108, 5, 14, 8, 2, 108, 109, 8, 7, 1, 2,
-	109, 111, 3, 2, 2, 2, 110, 102, 3, 2, 2, 2, 110, 107, 3, 2, 2, 2, 111,
+	3, 9, 3, 9, 3, 9, 3, 9, 3, 9, 3, 9, 3, 9, 5, 9, 154, 10, 9, 3, 9, 2, 5,
+	10, 12, 14, 10, 2, 4, 6, 8, 10, 12, 14, 16, 2, 5, 3, 2, 25, 26, 3, 2, 23,
+	24, 3, 2, 14, 19, 2, 166, 2, 18, 3, 2, 2, 2, 4, 24, 3, 2, 2, 2, 6, 29,
+	3, 2, 2, 2, 8, 45, 3, 2, 2, 2, 10, 80, 3, 2, 2, 2, 12, 110, 3, 2, 2, 2,
+	14, 127, 3, 2, 2, 2, 16, 153, 3, 2, 2, 2, 18, 19, 5, 4, 3, 2, 19, 20, 8,
+	2, 1, 2, 20, 3, 3, 2, 2, 2, 21, 23, 5, 6, 4, 2, 22, 21, 3, 2, 2, 2, 23,
+	26, 3, 2, 2, 2, 24, 22, 3, 2, 2, 2, 24, 25, 3, 2, 2, 2, 25, 27, 3, 2, 2,
+	2, 26, 24, 3, 2, 2, 2, 27, 28, 8, 3, 1, 2, 28, 5, 3, 2, 2, 2, 29, 30, 7,
+	5, 2, 2, 30, 31, 7, 3, 2, 2, 31, 32, 5, 8, 5, 2, 32, 33, 7, 4, 2, 2, 33,
+	34, 7, 21, 2, 2, 34, 35, 8, 4, 1, 2, 35, 7, 3, 2, 2, 2, 36, 37, 5, 12,
+	7, 2, 37, 38, 8, 5, 1, 2, 38, 46, 3, 2, 2, 2, 39, 40, 5, 14, 8, 2, 40,
+	41, 8, 5, 1, 2, 41, 46, 3, 2, 2, 2, 42, 43, 5, 10, 6, 2, 43, 44, 8, 5,
+	1, 2, 44, 46, 3, 2, 2, 2, 45, 36, 3, 2, 2, 2, 45, 39, 3, 2, 2, 2, 45, 42,
+	3, 2, 2, 2, 46, 9, 3, 2, 2, 2, 47, 48, 8, 6, 1, 2, 48, 49, 7, 24, 2, 2,
+	49, 50, 5, 8, 5, 2, 50, 51, 8, 6, 1, 2, 51, 81, 3, 2, 2, 2, 52, 53, 5,
+	16, 9, 2, 53, 54, 8, 6, 1, 2, 54, 81, 3, 2, 2, 2, 55, 56, 7, 3, 2, 2, 56,
+	57, 5, 8, 5, 2, 57, 58, 7, 4, 2, 2, 58, 59, 8, 6, 1, 2, 59, 81, 3, 2, 2,
+	2, 60, 61, 7, 6, 2, 2, 61, 62, 7, 20, 2, 2, 62, 63, 7, 10, 2, 2, 63, 64,
+	7, 3, 2, 2, 64, 65, 5, 10, 6, 2, 65, 66, 7, 22, 2, 2, 66, 67, 5, 10, 6,
+	2, 67, 68, 7, 4, 2, 2, 68, 69, 8, 6, 1, 2, 69, 81, 3, 2, 2, 2, 70, 71,
+	7, 7, 2, 2, 71, 72, 7, 20, 2, 2, 72, 73, 7, 10, 2, 2, 73, 74, 7, 3, 2,
+	2, 74, 75, 5, 10, 6, 2, 75, 76, 7, 22, 2, 2, 76, 77, 5, 10, 6, 2, 77, 78,
+	7, 4, 2, 2, 78, 79, 8, 6, 1, 2, 79, 81, 3, 2, 2, 2, 80, 47, 3, 2, 2, 2,
+	80, 52, 3, 2, 2, 2, 80, 55, 3, 2, 2, 2, 80, 60, 3, 2, 2, 2, 80, 70, 3,
+	2, 2, 2, 81, 99, 3, 2, 2, 2, 82, 83, 12, 9, 2, 2, 83, 84, 9, 2, 2, 2, 84,
+	85, 5, 10, 6, 10, 85, 86, 8, 6, 1, 2, 86, 98, 3, 2, 2, 2, 87, 88, 12, 8,
+	2, 2, 88, 89, 9, 3, 2, 2, 89, 90, 5, 10, 6, 9, 90, 91, 8, 6, 1, 2, 91,
+	98, 3, 2, 2, 2, 92, 93, 12, 7, 2, 2, 93, 94, 7, 27, 2, 2, 94, 95, 5, 10,
+	6, 8, 95, 96, 8, 6, 1, 2, 96, 98, 3, 2, 2, 2, 97, 82, 3, 2, 2, 2, 97, 87,
+	3, 2, 2, 2, 97, 92, 3, 2, 2, 2, 98, 101, 3, 2, 2, 2, 99, 97, 3, 2, 2, 2,
+	99, 100, 3, 2, 2, 2, 100, 11, 3, 2, 2, 2, 101, 99, 3, 2, 2, 2, 102, 103,
+	8, 7, 1, 2, 103, 104, 7, 13, 2, 2, 104, 105, 5, 12, 7, 4, 105, 106, 8,
+	7, 1, 2, 106, 111, 3, 2, 2, 2, 107, 108, 5, 14, 8, 2, 108, 109, 8, 7, 1,
+	2, 109, 111, 3, 2, 2, 2, 110, 102, 3, 2, 2, 2, 110, 107, 3, 2, 2, 2, 111,
 	124, 3, 2, 2, 2, 112, 113, 12, 6, 2, 2, 113, 114, 7, 12, 2, 2, 114, 115,
 	5, 12, 7, 7, 115, 116, 8, 7, 1, 2, 116, 123, 3, 2, 2, 2, 117, 118, 12,
 	5, 2, 2, 118, 119, 7, 11, 2, 2, 119, 120, 5, 12, 7, 6, 120, 121, 8, 7,
@@ -80,25 +80,26 @@ var parserATN = []uint16{
 	2, 2, 132, 133, 9, 4, 2, 2, 133, 134, 5, 14, 8, 5, 134, 135, 8, 8, 1, 2,
 	135, 137, 3, 2, 2, 2, 136, 131, 3, 2, 2, 2, 137, 140, 3, 2, 2, 2, 138,
 	136, 3, 2, 2, 2, 138, 139, 3, 2, 2, 2, 139, 15, 3, 2, 2, 2, 140, 138, 3,
-	2, 2, 2, 141, 142, 7, 28, 2, 2, 142, 152, 8, 9, 1, 2, 143, 144, 7, 30,
-	2, 2, 144, 152, 8, 9, 1, 2, 145, 146, 7, 29, 2, 2, 146, 152, 8, 9, 1, 2,
-	147, 148, 7, 31, 2, 2, 148, 152, 8, 9, 1, 2, 149, 150, 7, 32, 2, 2, 150,
-	152, 8, 9, 1, 2, 151, 141, 3, 2, 2, 2, 151, 143, 3, 2, 2, 2, 151, 145,
-	3, 2, 2, 2, 151, 147, 3, 2, 2, 2, 151, 149, 3, 2, 2, 2, 152, 17, 3, 2,
-	2, 2, 12, 24, 45, 80, 97, 99, 110, 122, 124, 138, 151,
+	2, 2, 2, 141, 142, 7, 28, 2, 2, 142, 154, 8, 9, 1, 2, 143, 144, 7, 30,
+	2, 2, 144, 154, 8, 9, 1, 2, 145, 146, 7, 29, 2, 2, 146, 154, 8, 9, 1, 2,
+	147, 148, 7, 32, 2, 2, 148, 154, 8, 9, 1, 2, 149, 150, 7, 33, 2, 2, 150,
+	154, 8, 9, 1, 2, 151, 152, 7, 31, 2, 2, 152, 154, 8, 9, 1, 2, 153, 141,
+	3, 2, 2, 2, 153, 143, 3, 2, 2, 2, 153, 145, 3, 2, 2, 2, 153, 147, 3, 2,
+	2, 2, 153, 149, 3, 2, 2, 2, 153, 151, 3, 2, 2, 2, 154, 17, 3, 2, 2, 2,
+	12, 24, 45, 80, 97, 99, 110, 122, 124, 138, 153,
 }
 var literalNames = []string{
 	"", "'('", "')'", "'println!'", "'i64'", "'f64'", "'&str'", "'bool'", "'pow'",
 	"'&&'", "'||'", "'!'", "'!='", "'>='", "'<='", "'>'", "'<'", "'=='", "'::'",
-	"';'", "','", "'+'", "'-'", "'*'", "'/'", "'%'", "", "", "", "'true'",
+	"';'", "','", "'+'", "'-'", "'*'", "'/'", "'%'", "", "", "", "", "'true'",
 	"'false'",
 }
 var symbolicNames = []string{
 	"", "PARENA", "PARENC", "PRINTLN", "R_INT", "R_FLOAT", "R_STRING", "R_BOOL",
 	"POW", "AND", "OR", "NOT", "DIFERENTE", "MAYORIGUAL", "MENORIGUAL", "MAYORQUE",
 	"MENORQUE", "IGUALIGUAL", "CUATROPT", "PTCOMA", "COMA", "MAS", "MENOS",
-	"POR", "DIVIDIDO", "MODULO", "ENTERO", "FLOAT", "CADENA", "R_TRUE", "R_FALSE",
-	"ID", "WHITESPACE",
+	"POR", "DIVIDIDO", "MODULO", "ENTERO", "FLOAT", "CADENA", "CARACTER", "R_TRUE",
+	"R_FALSE", "ID", "WHITESPACE",
 }
 
 var ruleNames = []string{
@@ -166,10 +167,11 @@ const (
 	SintacticoENTERO     = 26
 	SintacticoFLOAT      = 27
 	SintacticoCADENA     = 28
-	SintacticoR_TRUE     = 29
-	SintacticoR_FALSE    = 30
-	SintacticoID         = 31
-	SintacticoWHITESPACE = 32
+	SintacticoCARACTER   = 29
+	SintacticoR_TRUE     = 30
+	SintacticoR_FALSE    = 31
+	SintacticoID         = 32
+	SintacticoWHITESPACE = 33
 )
 
 // Sintactico rules.
@@ -1100,7 +1102,7 @@ func (p *Sintactico) expr_op(_p int) (localctx IExpr_opContext) {
 		}
 		localctx.(*Expr_opContext).p = expresion.NewOperacion(localctx.(*Expr_opContext).GetOpU().GetP(), "-", nil, true)
 
-	case SintacticoENTERO, SintacticoFLOAT, SintacticoCADENA, SintacticoR_TRUE, SintacticoR_FALSE:
+	case SintacticoENTERO, SintacticoFLOAT, SintacticoCADENA, SintacticoCARACTER, SintacticoR_TRUE, SintacticoR_FALSE:
 		{
 			p.SetState(50)
 
@@ -1547,7 +1549,7 @@ func (p *Sintactico) expr_log(_p int) (localctx IExpr_logContext) {
 		}
 		localctx.(*Expr_logContext).p = expresion.NewLogicas(localctx.(*Expr_logContext).GetHIzq().GetP(), "!", nil, true)
 
-	case SintacticoPARENA, SintacticoR_INT, SintacticoR_FLOAT, SintacticoMENOS, SintacticoENTERO, SintacticoFLOAT, SintacticoCADENA, SintacticoR_TRUE, SintacticoR_FALSE:
+	case SintacticoPARENA, SintacticoR_INT, SintacticoR_FLOAT, SintacticoMENOS, SintacticoENTERO, SintacticoFLOAT, SintacticoCADENA, SintacticoCARACTER, SintacticoR_TRUE, SintacticoR_FALSE:
 		{
 			p.SetState(105)
 
@@ -1924,6 +1926,9 @@ type IPrimitivoContext interface {
 	// Get_R_FALSE returns the _R_FALSE token.
 	Get_R_FALSE() antlr.Token
 
+	// Get_CARACTER returns the _CARACTER token.
+	Get_CARACTER() antlr.Token
+
 	// Set_ENTERO sets the _ENTERO token.
 	Set_ENTERO(antlr.Token)
 
@@ -1939,6 +1944,9 @@ type IPrimitivoContext interface {
 	// Set_R_FALSE sets the _R_FALSE token.
 	Set_R_FALSE(antlr.Token)
 
+	// Set_CARACTER sets the _CARACTER token.
+	Set_CARACTER(antlr.Token)
+
 	// GetP returns the p attribute.
 	GetP() abstract.Expresion
 
@@ -1951,13 +1959,14 @@ type IPrimitivoContext interface {
 
 type PrimitivoContext struct {
 	*antlr.BaseParserRuleContext
-	parser   antlr.Parser
-	p        abstract.Expresion
-	_ENTERO  antlr.Token
-	_CADENA  antlr.Token
-	_FLOAT   antlr.Token
-	_R_TRUE  antlr.Token
-	_R_FALSE antlr.Token
+	parser    antlr.Parser
+	p         abstract.Expresion
+	_ENTERO   antlr.Token
+	_CADENA   antlr.Token
+	_FLOAT    antlr.Token
+	_R_TRUE   antlr.Token
+	_R_FALSE  antlr.Token
+	_CARACTER antlr.Token
 }
 
 func NewEmptyPrimitivoContext() *PrimitivoContext {
@@ -1992,6 +2001,8 @@ func (s *PrimitivoContext) Get_R_TRUE() antlr.Token { return s._R_TRUE }
 
 func (s *PrimitivoContext) Get_R_FALSE() antlr.Token { return s._R_FALSE }
 
+func (s *PrimitivoContext) Get_CARACTER() antlr.Token { return s._CARACTER }
+
 func (s *PrimitivoContext) Set_ENTERO(v antlr.Token) { s._ENTERO = v }
 
 func (s *PrimitivoContext) Set_CADENA(v antlr.Token) { s._CADENA = v }
@@ -2001,6 +2012,8 @@ func (s *PrimitivoContext) Set_FLOAT(v antlr.Token) { s._FLOAT = v }
 func (s *PrimitivoContext) Set_R_TRUE(v antlr.Token) { s._R_TRUE = v }
 
 func (s *PrimitivoContext) Set_R_FALSE(v antlr.Token) { s._R_FALSE = v }
+
+func (s *PrimitivoContext) Set_CARACTER(v antlr.Token) { s._CARACTER = v }
 
 func (s *PrimitivoContext) GetP() abstract.Expresion { return s.p }
 
@@ -2024,6 +2037,10 @@ func (s *PrimitivoContext) R_TRUE() antlr.TerminalNode {
 
 func (s *PrimitivoContext) R_FALSE() antlr.TerminalNode {
 	return s.GetToken(SintacticoR_FALSE, 0)
+}
+
+func (s *PrimitivoContext) CARACTER() antlr.TerminalNode {
+	return s.GetToken(SintacticoCARACTER, 0)
 }
 
 func (s *PrimitivoContext) GetRuleContext() antlr.RuleContext {
@@ -2066,7 +2083,7 @@ func (p *Sintactico) Primitivo() (localctx IPrimitivoContext) {
 		}
 	}()
 
-	p.SetState(149)
+	p.SetState(151)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
@@ -2182,6 +2199,31 @@ func (p *Sintactico) Primitivo() (localctx IPrimitivoContext) {
 			fmt.Println(err)
 		}
 		localctx.(*PrimitivoContext).p = expresion.NewPrimitivo(bool_false, entorno.BOOL)
+
+	case SintacticoCARACTER:
+		p.EnterOuterAlt(localctx, 6)
+		{
+			p.SetState(149)
+
+			var _m = p.Match(SintacticoCARACTER)
+
+			localctx.(*PrimitivoContext)._CARACTER = _m
+		}
+
+		str := (func() string {
+			if localctx.(*PrimitivoContext).Get_CARACTER() == nil {
+				return ""
+			} else {
+				return localctx.(*PrimitivoContext).Get_CARACTER().GetText()
+			}
+		}())[1 : len((func() string {
+			if localctx.(*PrimitivoContext).Get_CARACTER() == nil {
+				return ""
+			} else {
+				return localctx.(*PrimitivoContext).Get_CARACTER().GetText()
+			}
+		}()))-1]
+		localctx.(*PrimitivoContext).p = expresion.NewPrimitivo(str, entorno.STRING)
 
 	default:
 		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))

@@ -27,7 +27,7 @@ public class Sintactico extends Parser {
 		POW=8, AND=9, OR=10, NOT=11, DIFERENTE=12, MAYORIGUAL=13, MENORIGUAL=14, 
 		MAYORQUE=15, MENORQUE=16, IGUALIGUAL=17, CUATROPT=18, PTCOMA=19, COMA=20, 
 		MAS=21, MENOS=22, POR=23, DIVIDIDO=24, MODULO=25, ENTERO=26, FLOAT=27, 
-		CADENA=28, R_TRUE=29, R_FALSE=30, ID=31, WHITESPACE=32;
+		CADENA=28, CARACTER=29, R_TRUE=30, R_FALSE=31, ID=32, WHITESPACE=33;
 	public static final int
 		RULE_start = 0, RULE_instrucciones = 1, RULE_instruccion = 2, RULE_expr = 3, 
 		RULE_expr_op = 4, RULE_expr_log = 5, RULE_expr_rel = 6, RULE_primitivo = 7;
@@ -44,7 +44,7 @@ public class Sintactico extends Parser {
 			null, "'('", "')'", "'println!'", "'i64'", "'f64'", "'&str'", "'bool'", 
 			"'pow'", "'&&'", "'||'", "'!'", "'!='", "'>='", "'<='", "'>'", "'<'", 
 			"'=='", "'::'", "';'", "','", "'+'", "'-'", "'*'", "'/'", "'%'", null, 
-			null, null, "'true'", "'false'"
+			null, null, null, "'true'", "'false'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -53,8 +53,8 @@ public class Sintactico extends Parser {
 			null, "PARENA", "PARENC", "PRINTLN", "R_INT", "R_FLOAT", "R_STRING", 
 			"R_BOOL", "POW", "AND", "OR", "NOT", "DIFERENTE", "MAYORIGUAL", "MENORIGUAL", 
 			"MAYORQUE", "MENORQUE", "IGUALIGUAL", "CUATROPT", "PTCOMA", "COMA", "MAS", 
-			"MENOS", "POR", "DIVIDIDO", "MODULO", "ENTERO", "FLOAT", "CADENA", "R_TRUE", 
-			"R_FALSE", "ID", "WHITESPACE"
+			"MENOS", "POR", "DIVIDIDO", "MODULO", "ENTERO", "FLOAT", "CADENA", "CARACTER", 
+			"R_TRUE", "R_FALSE", "ID", "WHITESPACE"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -382,6 +382,7 @@ public class Sintactico extends Parser {
 			case ENTERO:
 			case FLOAT:
 			case CADENA:
+			case CARACTER:
 			case R_TRUE:
 			case R_FALSE:
 				{
@@ -598,6 +599,7 @@ public class Sintactico extends Parser {
 			case ENTERO:
 			case FLOAT:
 			case CADENA:
+			case CARACTER:
 			case R_TRUE:
 			case R_FALSE:
 				{
@@ -776,11 +778,13 @@ public class Sintactico extends Parser {
 		public Token FLOAT;
 		public Token R_TRUE;
 		public Token R_FALSE;
+		public Token CARACTER;
 		public TerminalNode ENTERO() { return getToken(Sintactico.ENTERO, 0); }
 		public TerminalNode CADENA() { return getToken(Sintactico.CADENA, 0); }
 		public TerminalNode FLOAT() { return getToken(Sintactico.FLOAT, 0); }
 		public TerminalNode R_TRUE() { return getToken(Sintactico.R_TRUE, 0); }
 		public TerminalNode R_FALSE() { return getToken(Sintactico.R_FALSE, 0); }
+		public TerminalNode CARACTER() { return getToken(Sintactico.CARACTER, 0); }
 		public PrimitivoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -791,7 +795,7 @@ public class Sintactico extends Parser {
 		PrimitivoContext _localctx = new PrimitivoContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_primitivo);
 		try {
-			setState(149);
+			setState(151);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ENTERO:
@@ -861,6 +865,17 @@ public class Sintactico extends Parser {
 
 				}
 				break;
+			case CARACTER:
+				enterOuterAlt(_localctx, 6);
+				{
+				setState(149);
+				((PrimitivoContext)_localctx).CARACTER = match(CARACTER);
+
+				    str := (((PrimitivoContext)_localctx).CARACTER!=null?((PrimitivoContext)_localctx).CARACTER.getText():null)[1:len((((PrimitivoContext)_localctx).CARACTER!=null?((PrimitivoContext)_localctx).CARACTER.getText():null))-1]
+				    _localctx.p = expresion.NewPrimitivo(str, entorno.STRING)
+
+				}
+				break;
 			default:
 				throw new NoViableAltException(this);
 			}
@@ -916,7 +931,7 @@ public class Sintactico extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\"\u009a\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3#\u009c\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\2\3\3"+
 		"\7\3\27\n\3\f\3\16\3\32\13\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3"+
 		"\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5.\n\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3"+
@@ -925,38 +940,39 @@ public class Sintactico extends Parser {
 		"\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\7\6b\n\6\f\6\16\6e\13\6\3\7\3\7\3\7\3"+
 		"\7\3\7\3\7\3\7\3\7\5\7o\n\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\7"+
 		"\7{\n\7\f\7\16\7~\13\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\7\b\u0089\n"+
-		"\b\f\b\16\b\u008c\13\b\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\5\t\u0098"+
-		"\n\t\3\t\2\5\n\f\16\n\2\4\6\b\n\f\16\20\2\5\3\2\31\32\3\2\27\30\3\2\16"+
-		"\23\2\u00a3\2\22\3\2\2\2\4\30\3\2\2\2\6\35\3\2\2\2\b-\3\2\2\2\nP\3\2\2"+
-		"\2\fn\3\2\2\2\16\177\3\2\2\2\20\u0097\3\2\2\2\22\23\5\4\3\2\23\24\b\2"+
-		"\1\2\24\3\3\2\2\2\25\27\5\6\4\2\26\25\3\2\2\2\27\32\3\2\2\2\30\26\3\2"+
-		"\2\2\30\31\3\2\2\2\31\33\3\2\2\2\32\30\3\2\2\2\33\34\b\3\1\2\34\5\3\2"+
-		"\2\2\35\36\7\5\2\2\36\37\7\3\2\2\37 \5\b\5\2 !\7\4\2\2!\"\7\25\2\2\"#"+
-		"\b\4\1\2#\7\3\2\2\2$%\5\f\7\2%&\b\5\1\2&.\3\2\2\2\'(\5\16\b\2()\b\5\1"+
-		"\2).\3\2\2\2*+\5\n\6\2+,\b\5\1\2,.\3\2\2\2-$\3\2\2\2-\'\3\2\2\2-*\3\2"+
-		"\2\2.\t\3\2\2\2/\60\b\6\1\2\60\61\7\30\2\2\61\62\5\b\5\2\62\63\b\6\1\2"+
-		"\63Q\3\2\2\2\64\65\5\20\t\2\65\66\b\6\1\2\66Q\3\2\2\2\678\7\3\2\289\5"+
-		"\b\5\29:\7\4\2\2:;\b\6\1\2;Q\3\2\2\2<=\7\6\2\2=>\7\24\2\2>?\7\n\2\2?@"+
-		"\7\3\2\2@A\5\n\6\2AB\7\26\2\2BC\5\n\6\2CD\7\4\2\2DE\b\6\1\2EQ\3\2\2\2"+
-		"FG\7\7\2\2GH\7\24\2\2HI\7\n\2\2IJ\7\3\2\2JK\5\n\6\2KL\7\26\2\2LM\5\n\6"+
-		"\2MN\7\4\2\2NO\b\6\1\2OQ\3\2\2\2P/\3\2\2\2P\64\3\2\2\2P\67\3\2\2\2P<\3"+
-		"\2\2\2PF\3\2\2\2Qc\3\2\2\2RS\f\t\2\2ST\t\2\2\2TU\5\n\6\nUV\b\6\1\2Vb\3"+
-		"\2\2\2WX\f\b\2\2XY\t\3\2\2YZ\5\n\6\tZ[\b\6\1\2[b\3\2\2\2\\]\f\7\2\2]^"+
-		"\7\33\2\2^_\5\n\6\b_`\b\6\1\2`b\3\2\2\2aR\3\2\2\2aW\3\2\2\2a\\\3\2\2\2"+
-		"be\3\2\2\2ca\3\2\2\2cd\3\2\2\2d\13\3\2\2\2ec\3\2\2\2fg\b\7\1\2gh\7\r\2"+
-		"\2hi\5\f\7\4ij\b\7\1\2jo\3\2\2\2kl\5\16\b\2lm\b\7\1\2mo\3\2\2\2nf\3\2"+
-		"\2\2nk\3\2\2\2o|\3\2\2\2pq\f\6\2\2qr\7\f\2\2rs\5\f\7\7st\b\7\1\2t{\3\2"+
-		"\2\2uv\f\5\2\2vw\7\13\2\2wx\5\f\7\6xy\b\7\1\2y{\3\2\2\2zp\3\2\2\2zu\3"+
-		"\2\2\2{~\3\2\2\2|z\3\2\2\2|}\3\2\2\2}\r\3\2\2\2~|\3\2\2\2\177\u0080\b"+
-		"\b\1\2\u0080\u0081\5\n\6\2\u0081\u0082\b\b\1\2\u0082\u008a\3\2\2\2\u0083"+
-		"\u0084\f\4\2\2\u0084\u0085\t\4\2\2\u0085\u0086\5\16\b\5\u0086\u0087\b"+
-		"\b\1\2\u0087\u0089\3\2\2\2\u0088\u0083\3\2\2\2\u0089\u008c\3\2\2\2\u008a"+
-		"\u0088\3\2\2\2\u008a\u008b\3\2\2\2\u008b\17\3\2\2\2\u008c\u008a\3\2\2"+
-		"\2\u008d\u008e\7\34\2\2\u008e\u0098\b\t\1\2\u008f\u0090\7\36\2\2\u0090"+
-		"\u0098\b\t\1\2\u0091\u0092\7\35\2\2\u0092\u0098\b\t\1\2\u0093\u0094\7"+
-		"\37\2\2\u0094\u0098\b\t\1\2\u0095\u0096\7 \2\2\u0096\u0098\b\t\1\2\u0097"+
-		"\u008d\3\2\2\2\u0097\u008f\3\2\2\2\u0097\u0091\3\2\2\2\u0097\u0093\3\2"+
-		"\2\2\u0097\u0095\3\2\2\2\u0098\21\3\2\2\2\f\30-Pacnz|\u008a\u0097";
+		"\b\f\b\16\b\u008c\13\b\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t"+
+		"\5\t\u009a\n\t\3\t\2\5\n\f\16\n\2\4\6\b\n\f\16\20\2\5\3\2\31\32\3\2\27"+
+		"\30\3\2\16\23\2\u00a6\2\22\3\2\2\2\4\30\3\2\2\2\6\35\3\2\2\2\b-\3\2\2"+
+		"\2\nP\3\2\2\2\fn\3\2\2\2\16\177\3\2\2\2\20\u0099\3\2\2\2\22\23\5\4\3\2"+
+		"\23\24\b\2\1\2\24\3\3\2\2\2\25\27\5\6\4\2\26\25\3\2\2\2\27\32\3\2\2\2"+
+		"\30\26\3\2\2\2\30\31\3\2\2\2\31\33\3\2\2\2\32\30\3\2\2\2\33\34\b\3\1\2"+
+		"\34\5\3\2\2\2\35\36\7\5\2\2\36\37\7\3\2\2\37 \5\b\5\2 !\7\4\2\2!\"\7\25"+
+		"\2\2\"#\b\4\1\2#\7\3\2\2\2$%\5\f\7\2%&\b\5\1\2&.\3\2\2\2\'(\5\16\b\2("+
+		")\b\5\1\2).\3\2\2\2*+\5\n\6\2+,\b\5\1\2,.\3\2\2\2-$\3\2\2\2-\'\3\2\2\2"+
+		"-*\3\2\2\2.\t\3\2\2\2/\60\b\6\1\2\60\61\7\30\2\2\61\62\5\b\5\2\62\63\b"+
+		"\6\1\2\63Q\3\2\2\2\64\65\5\20\t\2\65\66\b\6\1\2\66Q\3\2\2\2\678\7\3\2"+
+		"\289\5\b\5\29:\7\4\2\2:;\b\6\1\2;Q\3\2\2\2<=\7\6\2\2=>\7\24\2\2>?\7\n"+
+		"\2\2?@\7\3\2\2@A\5\n\6\2AB\7\26\2\2BC\5\n\6\2CD\7\4\2\2DE\b\6\1\2EQ\3"+
+		"\2\2\2FG\7\7\2\2GH\7\24\2\2HI\7\n\2\2IJ\7\3\2\2JK\5\n\6\2KL\7\26\2\2L"+
+		"M\5\n\6\2MN\7\4\2\2NO\b\6\1\2OQ\3\2\2\2P/\3\2\2\2P\64\3\2\2\2P\67\3\2"+
+		"\2\2P<\3\2\2\2PF\3\2\2\2Qc\3\2\2\2RS\f\t\2\2ST\t\2\2\2TU\5\n\6\nUV\b\6"+
+		"\1\2Vb\3\2\2\2WX\f\b\2\2XY\t\3\2\2YZ\5\n\6\tZ[\b\6\1\2[b\3\2\2\2\\]\f"+
+		"\7\2\2]^\7\33\2\2^_\5\n\6\b_`\b\6\1\2`b\3\2\2\2aR\3\2\2\2aW\3\2\2\2a\\"+
+		"\3\2\2\2be\3\2\2\2ca\3\2\2\2cd\3\2\2\2d\13\3\2\2\2ec\3\2\2\2fg\b\7\1\2"+
+		"gh\7\r\2\2hi\5\f\7\4ij\b\7\1\2jo\3\2\2\2kl\5\16\b\2lm\b\7\1\2mo\3\2\2"+
+		"\2nf\3\2\2\2nk\3\2\2\2o|\3\2\2\2pq\f\6\2\2qr\7\f\2\2rs\5\f\7\7st\b\7\1"+
+		"\2t{\3\2\2\2uv\f\5\2\2vw\7\13\2\2wx\5\f\7\6xy\b\7\1\2y{\3\2\2\2zp\3\2"+
+		"\2\2zu\3\2\2\2{~\3\2\2\2|z\3\2\2\2|}\3\2\2\2}\r\3\2\2\2~|\3\2\2\2\177"+
+		"\u0080\b\b\1\2\u0080\u0081\5\n\6\2\u0081\u0082\b\b\1\2\u0082\u008a\3\2"+
+		"\2\2\u0083\u0084\f\4\2\2\u0084\u0085\t\4\2\2\u0085\u0086\5\16\b\5\u0086"+
+		"\u0087\b\b\1\2\u0087\u0089\3\2\2\2\u0088\u0083\3\2\2\2\u0089\u008c\3\2"+
+		"\2\2\u008a\u0088\3\2\2\2\u008a\u008b\3\2\2\2\u008b\17\3\2\2\2\u008c\u008a"+
+		"\3\2\2\2\u008d\u008e\7\34\2\2\u008e\u009a\b\t\1\2\u008f\u0090\7\36\2\2"+
+		"\u0090\u009a\b\t\1\2\u0091\u0092\7\35\2\2\u0092\u009a\b\t\1\2\u0093\u0094"+
+		"\7 \2\2\u0094\u009a\b\t\1\2\u0095\u0096\7!\2\2\u0096\u009a\b\t\1\2\u0097"+
+		"\u0098\7\37\2\2\u0098\u009a\b\t\1\2\u0099\u008d\3\2\2\2\u0099\u008f\3"+
+		"\2\2\2\u0099\u0091\3\2\2\2\u0099\u0093\3\2\2\2\u0099\u0095\3\2\2\2\u0099"+
+		"\u0097\3\2\2\2\u009a\21\3\2\2\2\f\30-Pacnz|\u008a\u0099";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

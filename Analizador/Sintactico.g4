@@ -92,4 +92,8 @@ primitivo returns[abstract.Expresion p]
     }
     $p = expresion.NewPrimitivo(bool_false, entorno.BOOL)
 }
+| CARACTER {
+    str := $CARACTER.text[1:len($CARACTER.text)-1]
+    $p = expresion.NewPrimitivo(str, entorno.STRING)
+}
 ;

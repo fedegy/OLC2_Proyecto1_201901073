@@ -32,6 +32,7 @@ MODULO          : '%';
 ENTERO          : [0-9]+;
 FLOAT           : [0-9]+[.][0-9]+;
 CADENA          : '"'~["]*'"';
+CARACTER        : '\''~[']'\'';
 R_TRUE          : 'true';
 R_FALSE         : 'false';
 ID              : [a-zA-Z_][a-zA-Z0-9_]*;
