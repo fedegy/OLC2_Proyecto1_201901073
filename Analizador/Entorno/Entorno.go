@@ -44,3 +44,15 @@ func (env *Entorno) GetSimbolo(identificador string) interface{} {
 	var simbolnil Simbolo
 	return simbolnil
 }
+
+func (env *Entorno) ModificarSimbolo(identificador string, simbolonuevo interface{}) {
+	ideFinal := strings.ToLower(identificador)
+	for envActual := env; envActual != nil; envActual = envActual.Anterior {
+		for key := range envActual.Tabla {
+			if key == ideFinal {
+				env.Tabla[ideFinal] = simbolonuevo
+				return
+			}
+		}
+	}
+}
