@@ -63,6 +63,12 @@ func (s *BaseSintacticoListener) EnterExpr_rel(ctx *Expr_relContext) {}
 // ExitExpr_rel is called when production expr_rel is exited.
 func (s *BaseSintacticoListener) ExitExpr_rel(ctx *Expr_relContext) {}
 
+// EnterExpr_val is called when production expr_val is entered.
+func (s *BaseSintacticoListener) EnterExpr_val(ctx *Expr_valContext) {}
+
+// ExitExpr_val is called when production expr_val is exited.
+func (s *BaseSintacticoListener) ExitExpr_val(ctx *Expr_valContext) {}
+
 // EnterPrimitivo is called when production primitivo is entered.
 func (s *BaseSintacticoListener) EnterPrimitivo(ctx *PrimitivoContext) {}
 

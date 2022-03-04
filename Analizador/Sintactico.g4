@@ -41,10 +41,10 @@ expr_op returns[abstract.Expresion p]
     | hIzq = expr_op op=('*'|'/') hDer = expr_op {$p = expresion.NewOperacion($hIzq.p, $op.text, $hDer.p, false)}
     | hIzq = expr_op op=('+'|'-') hDer = expr_op {$p = expresion.NewOperacion($hIzq.p, $op.text, $hDer.p, false)}
     | hIzq = expr_op '%' hDer = expr_op {$p = expresion.NewOperacion($hIzq.p, $op.text, $hDer.p, false)}
-    | primitivo {$p = $primitivo.p}
     | PARENA expr PARENC {$p = $expr.p}
     | R_INT CUATROPT POW PARENA hIzq = expr_op ',' hDer = expr_op PARENC {$p = expresion.NewOperacion($hIzq.p, "**", $hDer.p, false)}
     | R_FLOAT CUATROPT POW PARENA hIzq = expr_op ',' hDer = expr_op PARENC {$p = expresion.NewOperacion($hIzq.p, "f64**", $hDer.p, false)}
+    | expr_val {$p = $expr_val.p}
 ;
 
 expr_log returns[abstract.Expresion p]
@@ -57,6 +57,10 @@ expr_log returns[abstract.Expresion p]
 expr_rel returns[abstract.Expresion p]
     : hIzq = expr_rel op = ('==' | '!=' | '<' | '<=' | '>' | '>=') hDer = expr_rel {$p = expresion.NewRelacional($hIzq.p, $op.text, $hDer.p)}
     | expr_op {$p = $expr_op.p}
+;
+
+expr_val returns[abstract.Expresion p]
+: primitivo         {$p = $primitivo.p}
 ;
 
 primitivo returns[abstract.Expresion p]

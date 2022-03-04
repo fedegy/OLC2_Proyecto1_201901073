@@ -1,14 +1,17 @@
 lexer grammar Lexico;
 
-PARENA          : '(';
-PARENC          : ')';
 PRINTLN         : 'println!';
 R_INT           : 'i64';
 R_FLOAT         : 'f64';
 R_STRING        : '&str';
 R_BOOL          : 'bool';
 POW             : 'pow';
+AS              : 'as';
+TOOWNED         : 'to_owned()';
+TOSTRING        : 'to_string()';
 
+PARENA          : '(';
+PARENC          : ')';
 AND             : '&&';
 OR              : '||';
 NOT             : '!';
@@ -22,6 +25,7 @@ IGUALIGUAL      : '==';
 CUATROPT        : '::';
 PTCOMA          : ';';
 COMA            : ',';
+PUNTO           : '.';
 
 MAS             : '+';
 MENOS           : '-';

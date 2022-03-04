@@ -29,6 +29,9 @@ type SintacticoListener interface {
 	// EnterExpr_rel is called when entering the expr_rel production.
 	EnterExpr_rel(c *Expr_relContext)
 
+	// EnterExpr_val is called when entering the expr_val production.
+	EnterExpr_val(c *Expr_valContext)
+
 	// EnterPrimitivo is called when entering the primitivo production.
 	EnterPrimitivo(c *PrimitivoContext)
 
@@ -52,6 +55,9 @@ type SintacticoListener interface {
 
 	// ExitExpr_rel is called when exiting the expr_rel production.
 	ExitExpr_rel(c *Expr_relContext)
+
+	// ExitExpr_val is called when exiting the expr_val production.
+	ExitExpr_val(c *Expr_valContext)
 
 	// ExitPrimitivo is called when exiting the primitivo production.
 	ExitPrimitivo(c *PrimitivoContext)
