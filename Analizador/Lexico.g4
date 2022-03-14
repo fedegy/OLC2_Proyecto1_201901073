@@ -3,10 +3,14 @@ lexer grammar Lexico;
 PRINTLN         : 'println!';
 R_INT           : 'i64';
 R_FLOAT         : 'f64';
-R_STRING        : '&str';
+R_STR           : '&str';
+R_CHAR          : 'char';
+MUT             : 'mut';
+R_STRING        : 'String';
 R_BOOL          : 'bool';
 POW             : 'pow';
 AS              : 'as';
+LET             : 'let';
 TOOWNED         : 'to_owned()';
 TOSTRING        : 'to_string()';
 
@@ -22,7 +26,9 @@ MAYORQUE        : '>';
 MENORQUE        : '<';
 IGUALIGUAL      : '==';
 
+IGUAL           : '=';
 CUATROPT        : '::';
+DOSPT           : ':';
 PTCOMA          : ';';
 COMA            : ',';
 PUNTO           : '.';

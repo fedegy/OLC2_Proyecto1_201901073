@@ -10,14 +10,16 @@ options {
     import arrayL "github.com/colegno/arrayList"
     import "OLC2_PROYECTO1_201901073/Analizador/Ast/Instrucciones"
     import "OLC2_PROYECTO1_201901073/Analizador/Entorno"
+    import "OLC2_PROYECTO1_201901073/Analizador/Ast"
 }
 
-start returns [*arrayL.List lista] : instrucciones {$lista = $instrucciones.l}
+start returns[ast.Ast ast]
+: instrucciones                     {$ast = ast.NewAst($instrucciones.l)}
 ;
 
 instrucciones returns [*arrayL.List l] @init {
     $l = arrayL.New()
-} : e += instruccion* {
+} : e += instruccion+ {
     listInt := localctx.(*InstruccionesContext).GetE()
     for _,e := range listInt {
         $l.Add(e.GetInstr())
@@ -27,7 +29,30 @@ instrucciones returns [*arrayL.List l] @init {
 ;
 
 instruccion returns[abstract.Instruccion instr]
-: PRINTLN PARENA expr PARENC PTCOMA {$instr = instrucciones.NewImprimir($expr.p)}
+: imprimir          {$instr = $imprimir.instr}
+| declaracion       {$instr = $declaracion.instr}
+;
+
+imprimir returns[abstract.Instruccion instr]
+    : PRINTLN PARENA expr PARENC PTCOMA {$instr = instrucciones.NewImprimir($expr.p)}
+;
+
+declaracion returns[abstract.Instruccion instr]
+    : LET MUT listides DOSPT tipos IGUAL expr {$instr = instrucciones.NewDeclaracionValor($listides.lista, $tipos.tipo, $expr.p)}
+;
+
+listides returns[*arrayL.List lista]
+@init { $lista = arrayL.New()}
+    : ID            {$lista.Add(expresion.NewIdentificador($ID.text))}                      
+;
+
+tipos returns[entorno.TipoDato tipo]
+    : R_INT                     {$tipo = entorno.INT}
+    | R_FLOAT                   {$tipo = entorno.FLOAT}
+    | R_STR                     {$tipo = entorno.STRING}
+    | R_CHAR                    {$tipo = entorno.CHAR}
+    | R_BOOL                    {$tipo = entorno.BOOL}
+    | R_STRING                  {$tipo = entorno.STRING}
 ;
 
 expr returns[abstract.Expresion p]

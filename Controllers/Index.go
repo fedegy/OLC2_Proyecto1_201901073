@@ -1,7 +1,9 @@
 package controllers
 
 import (
-	parser "OLC2_PROYECTO1_201901073/Analizador/parser"
+	analizador "OLC2_PROYECTO1_201901073/Analizador"
+	entorno "OLC2_PROYECTO1_201901073/Analizador/Entorno"
+	"OLC2_PROYECTO1_201901073/Analizador/parser"
 	complementos "OLC2_PROYECTO1_201901073/Complementos"
 	"encoding/json"
 	"fmt"
@@ -10,48 +12,64 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
-type Peticion struct {
+type Solicitud struct {
 	Text string `json:"text"`
 }
 
 func Inicio() http.HandlerFunc {
-	return func(wr http.ResponseWriter, req *http.Request) {
-		wr.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(wr).Encode(map[string]interface{}{"Run": "200"})
+	return func(writer http.ResponseWriter, request *http.Request) {
+		writer.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(writer).Encode(map[string]interface{}{"ok": "Exitoso"})
 	}
 }
 
 func Data() http.HandlerFunc {
-	return func(w http.ResponseWriter, rq *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		var pet Peticion
-		if err := json.NewDecoder(rq.Body).Decode(&pet); err != nil {
+		var solicitu Solicitud
+
+		if err := json.NewDecoder(r.Body).Decode(&solicitu); err != nil {
 			w.WriteHeader(http.StatusBadRequest)
-			json.NewEncoder(w).Encode(map[string]interface{}{"Estado": http.StatusBadRequest, "Descripcion": "Error"})
+			json.NewEncoder(w).Encode(map[string]interface{}{"Status": http.StatusBadRequest, "Message": "Error"})
 			return
 		}
-
 		errores := &complementos.CustomErrorListener{}
-		is := antlr.NewInputStream(pet.Text)
+
+		//errores := &complementos.CustomErrorListener{}
+		//is := antlr.NewInputStream("{system.out.println( \"\nresultado: \"+( 10*1)+ \"\n\") ;system.out.println( \"\nresultado: \"+( 10*1)+ \"\n\") ;}")
+		is := antlr.NewInputStream(solicitu.Text)
+		// Creación de lexer
 		lexer := parser.NewLexico(is)
 		lexer.RemoveErrorListeners()
 		lexer.AddErrorListener(errores)
+
 		stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
-
-		pars := parser.NewSintactico(stream)
-		pars.RemoveErrorListeners()
-		pars.AddErrorListener(errores)
-
-		pars.BuildParseTrees = true
-		tree := pars.Start()
-
-		fmt.Printf("\nErrores %v", errores.Errores)
-
+		// Creando el parser
+		p := parser.NewSintactico(stream)
+		p.RemoveErrorListeners()
+		p.AddErrorListener(errores)
+		p.BuildParseTrees = true
+		// Obteniendo la raiz
+		tree := p.Start()
+		fmt.Printf("\nErrores este punto %v", errores.Errores)
+		// Listener para recorrer el arbol
 		var listener *complementos.TreeShapeListener = complementos.NewTreeShapeListener()
 		if len(errores.Errores) == 0 {
 			antlr.ParseTreeWalkerDefault.Walk(listener, tree)
 		}
-		fmt.Println(listener.Consola)
-		json.NewEncoder(w).Encode(map[string]interface{}{"consola": listener.Consola})
+		AST := listener.Ast
+
+		ENTORNO_GLOBAL := entorno.NewEntorno("GLOBAL", nil)
+
+		for i := 0; i < AST.ListaInstrucciones.Len(); i++ {
+
+			r := AST.ListaInstrucciones.GetValue(i)
+			if r != nil {
+				r.(interfaces.Instruccion).Ejecutar(ENTORNO_GLOBAL)
+			}
+
+		}
+
+		json.NewEncoder(w).Encode(map[string]interface{}{"val": analizador.Consola})
 	}
 }

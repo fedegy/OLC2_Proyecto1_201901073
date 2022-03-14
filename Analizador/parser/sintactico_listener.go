@@ -17,6 +17,15 @@ type SintacticoListener interface {
 	// EnterInstruccion is called when entering the instruccion production.
 	EnterInstruccion(c *InstruccionContext)
 
+	// EnterDeclaracion is called when entering the declaracion production.
+	EnterDeclaracion(c *DeclaracionContext)
+
+	// EnterListides is called when entering the listides production.
+	EnterListides(c *ListidesContext)
+
+	// EnterTipos is called when entering the tipos production.
+	EnterTipos(c *TiposContext)
+
 	// EnterExpr is called when entering the expr production.
 	EnterExpr(c *ExprContext)
 
@@ -43,6 +52,15 @@ type SintacticoListener interface {
 
 	// ExitInstruccion is called when exiting the instruccion production.
 	ExitInstruccion(c *InstruccionContext)
+
+	// ExitDeclaracion is called when exiting the declaracion production.
+	ExitDeclaracion(c *DeclaracionContext)
+
+	// ExitListides is called when exiting the listides production.
+	ExitListides(c *ListidesContext)
+
+	// ExitTipos is called when exiting the tipos production.
+	ExitTipos(c *TiposContext)
 
 	// ExitExpr is called when exiting the expr production.
 	ExitExpr(c *ExprContext)

@@ -39,6 +39,24 @@ func (s *BaseSintacticoListener) EnterInstruccion(ctx *InstruccionContext) {}
 // ExitInstruccion is called when production instruccion is exited.
 func (s *BaseSintacticoListener) ExitInstruccion(ctx *InstruccionContext) {}
 
+// EnterDeclaracion is called when production declaracion is entered.
+func (s *BaseSintacticoListener) EnterDeclaracion(ctx *DeclaracionContext) {}
+
+// ExitDeclaracion is called when production declaracion is exited.
+func (s *BaseSintacticoListener) ExitDeclaracion(ctx *DeclaracionContext) {}
+
+// EnterListides is called when production listides is entered.
+func (s *BaseSintacticoListener) EnterListides(ctx *ListidesContext) {}
+
+// ExitListides is called when production listides is exited.
+func (s *BaseSintacticoListener) ExitListides(ctx *ListidesContext) {}
+
+// EnterTipos is called when production tipos is entered.
+func (s *BaseSintacticoListener) EnterTipos(ctx *TiposContext) {}
+
+// ExitTipos is called when production tipos is exited.
+func (s *BaseSintacticoListener) ExitTipos(ctx *TiposContext) {}
+
 // EnterExpr is called when production expr is entered.
 func (s *BaseSintacticoListener) EnterExpr(ctx *ExprContext) {}
 
